@@ -1,0 +1,1530 @@
+[
+  {
+    "id": 1,
+    "name": "เสื้อยืด Adicolor Trefoil",
+    "price": 910,
+    "originalPrice": 1300,
+    "discount": 30,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Black",
+    "color": "Black",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "คอกลม แต่งผ้าริบ",
+      "คอตตอน 100%",
+      "โครงการ Better Cotton เป็นผู้จัดหาฝ้ายผ่านระบบสมดุลของวัตถุดิบที่เข้าและออกในกระบวนการผลิต ดังนั้นผลิตภัณฑ์ชิ้นนี้จึงอาจไม่มีฝ้าย Better Cotton เป็นส่วนประกอบ",
+      "ได้มาจากโครงการ Better Cotton ผ่านระบบสมดุลของวัตถุดิบที่เข้าและออกในกระบวนการผลิต ดั้งนั้นผลิตภัณฑ์ชิ้นนี้จึงอาจไม่มีฝ้าย Better Cotton เป็นส่วนประกอบ",
+      "รหัสสินค้า: IU2364"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a4e5c540bedf433aa1644ebb3668508e_9366/Adicolor_Trefoil_IU2364_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b25ad4caa15f4d418824562d868e8033_9366/Adicolor_Trefoil_IU2364_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b3961994b2574b2e9144ab7d5ba59f99_9366/Adicolor_Trefoil_IU2364_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f151635e058c43f682946e371d055e5d_9366/Adicolor_Trefoil_IU2364_23_hover_model.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "เสื้อยืด Adicolor Trefoil",
+    "price": 910,
+    "originalPrice": 1300,
+    "discount": 30,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "White",
+    "color": "White",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "คอกลม แต่งผ้าริบ",
+      "คอตตอน 100%",
+      "โครงการ Better Cotton เป็นผู้จัดหาฝ้ายผ่านระบบสมดุลของวัตถุดิบที่เข้าและออกในกระบวนการผลิต ดังนั้นผลิตภัณฑ์ชิ้นนี้จึงอาจไม่มีฝ้าย Better Cotton เป็นส่วนประกอบ",
+      "ได้มาจากโครงการ Better Cotton ผ่านระบบสมดุลของวัตถุดิบที่เข้าและออกในกระบวนการผลิต ดั้งนั้นผลิตภัณฑ์ชิ้นนี้จึงอาจไม่มีฝ้าย Better Cotton เป็นส่วนประกอบ",
+      "รหัสสินค้า: IV5353"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/dfcec29218f84da8adbbcdb8831d600e_9366/Adicolor_Trefoil_IV5353_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b0dc4b0e0afc460f88d7254cc8dcf4cb_9366/Adicolor_Trefoil_IV5353_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/696248fbcc944d658cf19a35cbd2126b_9366/Adicolor_Trefoil_IV5353_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a86727b0051b44a3bc0faa2ee2e7ee56_9366/Adicolor_Trefoil_IV5353_23_hover_model.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "เสื้อยืด Adicolor Trefoil",
+    "price": 910,
+    "originalPrice": 1300,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "discount": 30,
+    "text-color": "Gray",
+    "color": "#d7d4d5",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "คอกลม แต่งผ้าริบ",
+      "คอตตอน 100%",
+      "โครงการ Better Cotton เป็นผู้จัดหาฝ้ายผ่านระบบสมดุลของวัตถุดิบที่เข้าและออกในกระบวนการผลิต ดังนั้นผลิตภัณฑ์ชิ้นนี้จึงอาจไม่มีฝ้าย Better Cotton เป็นส่วนประกอบ",
+      "ได้มาจากโครงการ Better Cotton ผ่านระบบสมดุลของวัตถุดิบที่เข้าและออกในกระบวนการผลิต ดั้งนั้นผลิตภัณฑ์ชิ้นนี้จึงอาจไม่มีฝ้าย Better Cotton เป็นส่วนประกอบ",
+      "รหัสสินค้า: IS0613"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/abf64d1fdf774894ac9f76159fb81031_9366/Adicolor_Trefoil_IS0613_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/d16f1ade31a349d4a249171f157f4e8f_9366/Adicolor_Trefoil_IS0613_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/6535f8d3c9bf46a68149c5c60877b2fd_9366/Adicolor_Trefoil_IS0613_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/900ad4a0ce1c434ebde58decac70d88c_9366/Adicolor_Trefoil_IS0613_23_hover_model.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "เสื้อกันหนาวคอกลม Adicolor Classics Trefoil",
+    "originalPrice": 1440,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Black",
+    "color": "Black",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "คอกลม แต่งผ้าริบ",
+      "คอตตอน 100%",
+      "ชายเสื้อและปลายแขนเสื้อแต่งผ้าริบ",
+      "รหัสสินค้า: IM4500"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/52770e0bd78744d5b18cad120147da0a_9366/Adicolor_Classics_Trefoil_H06651_01_laydown.jpg",
+      "https://assets.adidas.com/images/c_crop,f_auto,fl_lossy,g_north,h_840,q_auto,y_40/h_2000/dfdf0672949f48dd977dafd000e51c5e_9366/Adicolor_Classics_Trefoil_IM4500_01_laydown.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "เสื้อกันหนาวคอกลม Adicolor Classics Trefoil",
+    "originalPrice": 1440,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Grey",
+    "color": "#d7d4d5",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "คอกลม แต่งผ้าริบ",
+      "คอตตอน 100%",
+      "ชายเสื้อและปลายแขนเสื้อแต่งผ้าริบ",
+      "รหัสสินค้า: IM4501"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/da0a63639e564530ae44afd000e57c24_9366/Adicolor_Classics_Trefoil_IM4501_01_laydown.jpg",
+      "https://assets.adidas.com/images/c_crop,f_auto,fl_lossy,g_north,h_840,q_auto,y_40/h_2000/da0a63639e564530ae44afd000e57c24_9366/Adicolor_Classics_Trefoil_IM4501_01_laydown.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "เสื้อยืด Adicolor Classics Trefoil",
+    "originalPrice": 1300,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 0
+      },
+      {
+        "size": "M",
+        "qty": 4
+      },
+      {
+        "size": "L",
+        "qty": 0
+      },
+      {
+        "size": "XL",
+        "qty": 0
+      }
+    ],
+    "text-color": "Blue Dawn",
+    "color": "#c7d8ef",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "คอกลม แต่งผ้าริบ",
+      "คอตตอน 93% อีลาสเตนซิงเกิลเจอร์ซีย์ 7%",
+      "สร้างสรรค์ร่วมกับโครงการ Better Cotton",
+      "รหัสสินค้า: IB7419"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/d2f22b8802b34c6d9a52af6400b545b4_9366/Adicolor_Classics_Trefoil_IB7419_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/cec8ece59808444c848baf6400b50510_9366/Adicolor_Classics_Trefoil_IB7419_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f59a80d90a9d4d2f9104af6400b5179c_9366/Adicolor_Classics_Trefoil_IB7419_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a536103561c24ffead2caf6400b50e42_9366/Adicolor_Classics_Trefoil_IB7419_23_hover_model.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "เสื้อฮู้ดซิปยาวเต็มตัว Future Icons 3-Stripes",
+    "originalPrice": 2800,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Black",
+    "color": "Black",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "ซิปยาวเต็มตัว มีฮู้ด",
+      "โพลีเอสเตอร์ (รีไซเคิล) 67% คอตตอน 33%",
+      "มีกระเป๋าซิปด้านหน้า",
+      "ปลายแขนและชายเสื้อแต่งผ้าริบ",
+      "รหัสสินค้า: JD4827"
+    ],
+    "category": "Shirt",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/e23e120280274e49977969dbead60ab9_9366/Future_Icons_3-Stripes_JD4827_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/6b61f91e0b574672aaa2410ae3d38577_9366/Future_Icons_3-Stripes_JD4827_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/6169c8abb4b045e7873d1d74f07e88b3_9366/Future_Icons_3-Stripes_JD4827_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f50bc567a98e4b5382e03b730ff35b5c_9366/Future_Icons_3-Stripes_JD4827_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/66ab7120c8f842b7a0a1244f03b83b5c_9366/Future_Icons_3-Stripes_JD4827_41_detail.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/d83dba8242004443989277135052193a_9366/Future_Icons_3-Stripes_JD4827_42_detail.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "รองเท้าวิ่ง Switch Run",
+    "price": 2560,
+    "originalPrice": 3200,
+    "discount": 20,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "Black",
+    "color": "Black",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้าตาข่ายโรลเลอร์เมช แต่งโอเวอร์เลย์ทีพียู",
+      "สัมผัสมั่นคง เบาสบาย",
+      "เกราะป้องกันส้นเท้าบุนุ่มแบบสามมิติ",
+      "พื้นชั้นกลางทำจาก EVA",
+      "น้ำหนัก: 300 กรัม (ไซส์ UK 8.5)",
+      "มิดโซลดรอป: 10 มม. (ความหนาส้นรองเท้า 40 มม. ความหนาปลายรองเท้า 30 มม.)",
+      "พื้นชั้นล่าง Adiwear",
+      "อัปเปอร์มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 50%",
+      "รหัสสินค้า: IF9337"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/bbecc540af264758bcb6bf1b92fa3c27_9366/Switch_Run_IF9337_06_standard.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3d5c005240824aef806b732ed4d746db_9366/Switch_Run_IF9337_02_standard_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/97a1e9f1c4894121bed6ef01e882bae4_9366/Switch_Run_IF9337_04_standard.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "รองเท้าวิ่ง Switch Run",
+    "price": 2560,
+    "originalPrice": 3200,
+    "discount": 20,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "White",
+    "color": "White",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้าตาข่ายโรลเลอร์เมช แต่งโอเวอร์เลย์ทีพียู",
+      "สัมผัสมั่นคง เบาสบาย",
+      "เกราะป้องกันส้นเท้าบุนุ่มแบบสามมิติ",
+      "พื้นชั้นกลางทำจาก EVA",
+      "น้ำหนัก: 300 กรัม (ไซส์ UK 8.5)",
+      "มิดโซลดรอป: 10 มม. (ความหนาส้นรองเท้า 40 มม. ความหนาปลายรองเท้า 30 มม.)",
+      "พื้นชั้นล่าง Adiwear",
+      "อัปเปอร์มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 50%",
+      "รหัสสินค้า: IF5719"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/5e8f3c11b42f44f294b8489c5ea2e1b9_9366/Switch_Run_IF5719_06_standard.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/57d04560ea98485380a0d942b74c7503_9366/Switch_Run_IF5719_02_standard_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/8cffe72977c44cdfbdccbaacad05a161_9366/Switch_Run_IF5719_04_standard.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "รองเท้าวิ่ง Switch Run",
+    "price": 2560,
+    "originalPrice": 3200,
+    "discount": 20,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "Gray",
+    "color": "#5b5e65",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้าตาข่ายโรลเลอร์เมช แต่งโอเวอร์เลย์ทีพียู",
+      "สัมผัสมั่นคง เบาสบาย",
+      "เกราะป้องกันส้นเท้าบุนุ่มแบบสามมิติ",
+      "พื้นชั้นกลางทำจาก EVA",
+      "น้ำหนัก: 300 กรัม (ไซส์ UK 8.5)",
+      "มิดโซลดรอป: 10 มม. (ความหนาส้นรองเท้า 40 มม. ความหนาปลายรองเท้า 30 มม.)",
+      "พื้นชั้นล่าง Adiwear",
+      "อัปเปอร์มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 50%",
+      "รหัสสินค้า: IF5720"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f7e1fe0028314b97bbb4972798f1b41f_9366/Switch_Run_IF5720_06_standard.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/75d2e5d3c7dd4609ba225fe9bce1c8ea_9366/Switch_Run_IF5720_02_standard_hover_hover_hover_hover_hover_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3de44f96511749f8a0d2682aea3c291b_9366/Switch_Run_IF5720_04_standard.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "รองเท้า Adizero EVO SL",
+    "originalPrice": 5800,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "White & Black",
+    "color": [
+      "White",
+      "black"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "แผ่นปะปลายรองเท้า: ยาง Continental (Conti Winter)",
+      "แผ่นปะส้นรองเท้า: ยาง CL (Clear Rubber)",
+      "น้ำหนักเฉลี่ย: 224 กรัม (ไซส์ UK 8.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 7 มม. (ความหนาส้นรองเท้า: 39 มม. / ความหนาปลายรองเท้า: 32 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "สินค้านำเข้า",
+      "รหัสสินค้า: JH6206"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/c2e7843b6be64924943406cfaa899b82_9366/Adizero_EVO_SL_JH6206_01_00_standard.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/482606b2f42b4a7b886b01ff2fabaa74_9366/Adizero_EVO_SL_JH6206_02_standard.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b54da65416dd4235a32e81dcbde81b79_9366/Adizero_EVO_SL_JH6206_04_standard.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "รองเท้า Adizero EVO SL",
+    "originalPrice": 5800,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "White & Red",
+    "color": [
+      "White",
+      "#ff285b"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "แผ่นปะปลายรองเท้า: ยาง Continental (Conti Winter)",
+      "แผ่นปะส้นรองเท้า: ยาง CL (Clear Rubber)",
+      "น้ำหนักเฉลี่ย: 224 กรัม (ไซส์ UK 8.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 7 มม. (ความหนาส้นรองเท้า: 39 มม. / ความหนาปลายรองเท้า: 32 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "สินค้านำเข้า",
+      "รหัสสินค้า: JS1182"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/d7717c1130ac48c8a995dffa100f6b56_9366/Adizero_EVO_SL_JS1182_01_00_standard.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbe74cbeb4614fbca92781e4ed4041e3_9366/Adizero_EVO_SL_JS1182_02_standard_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/58241dcaa6fe46af95522595a43a112a_9366/Adizero_EVO_SL_JS1182_04_standard.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "รองเท้า Adizero EVO SL",
+    "originalPrice": 5800,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "White & Blue",
+    "color": [
+      "White",
+      "#1447e6"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "แผ่นปะปลายรองเท้า: ยาง Continental (Conti Winter)",
+      "แผ่นปะส้นรองเท้า: ยาง CL (Clear Rubber)",
+      "น้ำหนักเฉลี่ย: 224 กรัม (ไซส์ UK 8.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 7 มม. (ความหนาส้นรองเท้า: 39 มม. / ความหนาปลายรองเท้า: 32 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "สินค้านำเข้า",
+      "รหัสสินค้า: JS4494"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/461bc88932da4769858737a1a3fb316e_9366/Adizero_EVO_SL_JS4494_HM1.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/9de0f988b6964692a4d147fcb6780dca_9366/Adizero_EVO_SL_JS4494_HM3_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/62156afa2a80429ea7bc13708fe0e766_9366/Adizero_EVO_SL_JS4494_HM4.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/8538cfc133884c9c86f04db2c2c195ef_9366/Adizero_EVO_SL_JS4494_HM5.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "รองเท้า Adizero EVO SL",
+    "originalPrice": 5800,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "Flash Aqua & Lucid Lemon",
+    "color": [
+      "#75e3e4",
+      "#daf837"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "แผ่นปะปลายรองเท้า: ยาง Continental (Conti Winter)",
+      "แผ่นปะส้นรองเท้า: ยาง CL (Clear Rubber)",
+      "น้ำหนักเฉลี่ย: 224 กรัม (ไซส์ UK 8.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 7 มม. (ความหนาส้นรองเท้า: 39 มม. / ความหนาปลายรองเท้า: 32 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "สินค้านำเข้า",
+      "รหัสสินค้า: JS4506"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/641b823c13bc4ae7b78e5612dbc280db_9366/Adizero_EVO_SL_JS4506_HM1.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbfe318e7a2844ec835ae17bc86d1eaa_9366/Adizero_EVO_SL_JS4506_HM3_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/80d210d453e1407c905fd1ffe1b37541_9366/Adizero_EVO_SL_JS4506_HM4.jpg.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/c194ff371b414f16ad0aec0caf281d29_9366/Adizero_EVO_SL_JS4506_HM5.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "รองเท้า Ultraboost 1.0",
+    "originalPrice": 6500,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "Grey Three",
+    "color": [
+      "#5b5e65",
+      "#d7d4d5"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้า adidas PRIMEKNIT",
+      "เกราะป้องกันส้นเท้า Fitcounter แบบขึ้นรูป",
+      "พื้นชั้นกลาง BOOST",
+      "พื้นชั้นล่าง Stretchweb ทำจากยาง Continental™",
+      "เส้นด้ายที่ใช้ถักทออัปเปอร์มีวัสดุ Parley Ocean Plastic เป็นส่วนประกอบอย่างน้อย 50% และโพลีเอสเตอร์รีไซเคิลอีก 50%",
+      "รหัสสินค้า: HQ4200"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/12b7706e50504338bf0c744c09522fda_9366/Ultraboost_1.0_HQ4200_HM1.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/9a65455db941485f8cc1b3460c742718_9366/Ultraboost_1.0_HQ4200_HM3_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/471cd1b715d147e2866b9c1680405428_9366/Ultraboost_1.0_HQ4200_HM4.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/bb38451e947d4ba29830c960924ca330_9366/Ultraboost_1.0_HQ4200_HM7.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "รองเท้า Adizero Adios Pro 4",
+    "originalPrice": 8000,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "White & Red",
+    "color": [
+      "White",
+      "#ff285b"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "ส่วนรับแรงกระแทก Lightstrike Pro",
+      "พื้นชั้นล่างทำจากยาง",
+      "น้ำหนัก: ประมาณ 172 กรัม (ไซส์ UK 5.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 6 มม. (ความหนาส้นรองเท้า 33 มม. / 39 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "รหัสสินค้า: JR6350"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/9cfcd8dee34c49d78f6c7f365f46c0b7_9366/Adizero_Adios_Pro_4_JR6350_HM1.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/37dc2189b85d41d6a40d1a90bd4a85f6_9366/Adizero_Adios_Pro_4_JR6350_HM3_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b1e6c523e8e94ab7ba370c363b72177c_9366/Adizero_Adios_Pro_4_JR6350_HM4.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/c3313edc510d4c92aa67260f16fa241d_9366/Adizero_Adios_Pro_4_JR6350_HM5.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "รองเท้า Adizero Adios Pro 4",
+    "originalPrice": 8000,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "Red & Black",
+    "color": [
+      "#ff285b",
+      "black"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "ส่วนรับแรงกระแทก Lightstrike Pro",
+      "พื้นชั้นล่างทำจากยาง",
+      "น้ำหนัก: ประมาณ 172 กรัม (ไซส์ UK 5.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 6 มม. (ความหนาส้นรองเท้า 33 มม. / 39 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "รหัสสินค้า: JR6356"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/0a786aea2fb84141bdd31f442aa4cb93_9366/Adizero_Adios_Pro_4_JR6356_HM1.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f5c88ead53d84b9d873ebf144e36af0e_9366/Adizero_Adios_Pro_4_JR6356_HM3_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/4e7eb66e75734e7e96fc3fa7f051a749_9366/Adizero_Adios_Pro_4_JR6356_HM4.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "รองเท้า Adizero Adios Pro 4",
+    "originalPrice": 8000,
+    "shoe_sizes": [
+      {
+        "size": "6 UK",
+        "qty": 10
+      },
+      {
+        "size": "6.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "7 UK",
+        "qty": 10
+      },
+      {
+        "size": "7.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "8 UK",
+        "qty": 10
+      },
+      {
+        "size": "8.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "9 UK",
+        "qty": 10
+      },
+      {
+        "size": "9.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "10 UK",
+        "qty": 10
+      },
+      {
+        "size": "10.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "11 UK",
+        "qty": 10
+      },
+      {
+        "size": "11.5 UK",
+        "qty": 10
+      },
+      {
+        "size": "12 UK",
+        "qty": 10
+      },
+      {
+        "size": "12.5 UK",
+        "qty": 10
+      }
+    ],
+    "text-color": "White & Sandstone",
+    "color": [
+      "White",
+      "#e6cbc7"
+    ],
+    "detail": [
+      "ทรงเรกูลาร์",
+      "มีเชือกผูกรองเท้า",
+      "อัปเปอร์ทำจากผ้าและวัสดุสังเคราะห์",
+      "ด้านในรองเท้าซับด้วยผ้า",
+      "ส่วนรับแรงกระแทก Lightstrike Pro",
+      "พื้นชั้นล่างทำจากยาง",
+      "น้ำหนัก: ประมาณ 172 กรัม (ไซส์ UK 5.5)",
+      "ความสูงพื้นรองเท้าชั้นกลาง: 6 มม. (ความหนาส้นรองเท้า 33 มม. / 39 มม.)",
+      "มีวัสดุรีไซเคิลเป็นส่วนประกอบอย่างน้อย 20%",
+      "รหัสสินค้า: JR6359"
+    ],
+    "category": "Shoe",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/d43725f1428e484a8a91f59557d4ecfd_9366/Adizero_Adios_Pro_4_JR6359_HM1.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/7b5b40e8798e485bacdf8ec68acd295d_9366/Adizero_Adios_Pro_4_JR6359_HM3_hover.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/77e9ed67bc4a49888cf189e4275af798_9366/Adizero_Adios_Pro_4_JR6359_HM4.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "กางเกงขาสั้นผ้าซิงเกิลเจอร์ซีย์ Essentials 3",
+    "price": 770,
+    "discount": 30,
+    "originalPrice": 1100,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Black",
+    "color": "Black",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "เอวยางยืด มีเชือกผูก",
+      "คอตตอน 70% โพลีเอสเตอร์รีไซเคิลซิงเกิลเจอร์ซีย์ 30%",
+      "เทคโนโลยี AEROREADY",
+      "มีกระเป๋าด้านข้าง",
+      "ขอบเอวมีเชือกผูกปรับความกระชับ",
+      "รหัสสินค้า: IC9382"
+    ],
+    "category": "Shorts",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/3f208863d3d84af88455c2c809a564cc_9366/Essentials_3-Stripes_7_JD1891_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f7a896ae10514347aa2044c4a9d65eee_9366/Essentials_3-Stripes_7_JD1891_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/72f79071c7d8474288669c7e2a4a5c2a_9366/Essentials_3-Stripes_7_JD1891_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/0291d596dd5846528ad2bf1b25e3f479_9366/Essentials_3-Stripes_7_JD1891_21_model.jpg"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "กางเกงขาสั้นผ้าซิงเกิลเจอร์ซีย์ Essentials 3",
+    "price": 770,
+    "discount": 30,
+    "originalPrice": 1100,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "White",
+    "color": "White",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "เอวยางยืด มีเชือกผูก",
+      "คอตตอน 70% โพลีเอสเตอร์รีไซเคิลซิงเกิลเจอร์ซีย์ 30%",
+      "เทคโนโลยี AEROREADY",
+      "มีกระเป๋าด้านข้าง",
+      "ขอบเอวมีเชือกผูกปรับความกระชับ",
+      "รหัสสินค้า: IC9383"
+    ],
+    "category": "Shorts",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a662838325884df6bb4146701ca73f84_9366/Essentials_3-Stripes_7_JE6424_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/0761e478f4014f8c9312f30e867e1219_9366/Essentials_3-Stripes_7_JE6424_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/e1a315fa8d4c4cca8504c7e0bf50e1c7_9366/Essentials_3-Stripes_7_JE6424_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/749110c5de144e8483f87a4bf50aad48_9366/Essentials_3-Stripes_7_JE6424_25_model.jpg"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "กางเกงขายาว Z.N.E.",
+    "originalPrice": 2800,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "White",
+    "color": "White",
+    "detail": [
+      "ทรงหลวม",
+      "เอวยางยืด มีเชือกผูก",
+      "โพลีเอสเตอร์ (รีไซเคิล) 57% คอตตอน 43%",
+      "เอวสูงปานกลาง",
+      "มีกระเป๋าซิปด้านหน้า",
+      "ปลายขากางเกงแต่งผ้าริบ",
+      "เนื้อผ้าสามชั้น",
+      "รหัสสินค้า: JF2449"
+    ],
+    "category": "Pants",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/fa6e26fce05e4da68b4d3369f9da0d8a_9366/Z.N.E._JF2449_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a156013c2b8d45029a9a0448ec3e7c5f_9366/Z.N.E._JF2449_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f91077d6def84829ae37f1320711d5d8_9366/Z.N.E._JF2449_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/be3c7266bd8f4bd49973456f97a7115e_9366/Z.N.E._JF2449_25_model.jpg"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "กางเกงขายาว Z.N.E.",
+    "originalPrice": 2800,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Red",
+    "color": "#ff285b",
+    "detail": [
+      "ทรงหลวม",
+      "เอวยางยืด มีเชือกผูก",
+      "โพลีเอสเตอร์ (รีไซเคิล) 57% คอตตอน 43%",
+      "เอวสูงปานกลาง",
+      "มีกระเป๋าซิปด้านหน้า",
+      "ปลายขากางเกงแต่งผ้าริบ",
+      "เนื้อผ้าสามชั้น",
+      "รหัสสินค้า: JC7916"
+    ],
+    "category": "Pants",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/894925175a8e49dcbe31aaaa21c2647e_9366/Z.N.E._JC7916_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/aabf40e9037d498ea718dfe7e8d9e316_9366/Z.N.E._JC7916_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/09fe43c363284182a2290171809f4f78_9366/Z.N.E._JC7916_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c92aae7b1904db188e12c7e0092c61c_9366/Z.N.E._JC7916_25_model.jpg.jpg"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "กางเกงขายาว Future Icons 3-Stripes",
+    "originalPrice": 2200,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Beige",
+    "color": "#b7a99c",
+    "category": "Pants",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "เอวยางยืด มีเชือกผูก",
+      "คอตตอน 67% โพลีเอสเตอร์รีไซเคิลดับเบิลนิต 33%",
+      "สัมผัสนุ่ม",
+      "มีกระเป๋าซิปด้านข้าง",
+      "จั๊มปลายขากางเกง",
+      "สนับสนุนโครงการ Better Cotton Initiative",
+      "รหัสสินค้า: HC5856"
+    ],
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/4df6c8e342ea4f62958dfde0168ff52a_9366/Future_Icons_3-Stripes_JD4862_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/f7b9ff7dbb284cebb26f9344be0e07b3_9366/Future_Icons_3-Stripes_JD4862_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a08136699d52459f99fd630996ea09a5_9366/Future_Icons_3-Stripes_JD4862_25_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/23c489f598864051973f1eaf48e211a0_9366/Future_Icons_3-Stripes_JD4862_42_detail.jpg"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "กางเกงขายาว Future Icons 3-Stripes",
+    "originalPrice": 2200,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Black",
+    "color": "Black",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "เอวยางยืด มีเชือกผูก",
+      "คอตตอน 67% โพลีเอสเตอร์รีไซเคิลดับเบิลนิต 33%",
+      "สัมผัสนุ่ม",
+      "มีกระเป๋าซิปด้านข้าง",
+      "จั๊มปลายขากางเกง",
+      "สนับสนุนโครงการ Better Cotton Initiative",
+      "รหัสสินค้า: HC5857"
+    ],
+    "category": "Pants",
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/38fcb0be55264824ad4a46c764d762b1_9366/Future_Icons_3-Stripes_JD4863_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/c5c9eb1ed31447f1b7c454e08f55b2af_9366/Future_Icons_3-Stripes_JD4863_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/03c8bb37d4d14735977fa1ec49f1a56d_9366/Future_Icons_3-Stripes_JD4863_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b39c7f9d70f945b9aa0737b9b6a5869a_9366/Future_Icons_3-Stripes_JD4863_25_model.jpg"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "กางเกงจ็อกเกอร์กอล์ฟ Beyond",
+    "originalPrice": 3500,
+    "clothing_sizes": [
+      {
+        "size": "S",
+        "qty": 10
+      },
+      {
+        "size": "M",
+        "qty": 10
+      },
+      {
+        "size": "L",
+        "qty": 10
+      },
+      {
+        "size": "XL",
+        "qty": 10
+      }
+    ],
+    "text-color": "Collegiate Navy",
+    "color": "Navy",
+    "category": "Pants",
+    "detail": [
+      "ทรงเรกูลาร์",
+      "เอวมีเชือกผูกปรับความกระชับ",
+      "โพลีเอสเตอร์ (รีไซเคิล) 100%",
+      "มีกระเป๋าด้านหน้าและหลัง",
+      "ปลายขากางเกงแต่งแถบยางยืด",
+      "สี: Collegiate Navy",
+      "รหัสสินค้า: JF4865"
+    ],
+    "img": [
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/a38a6dc47e5948328df68d7de1e34845_9366/Beyond_JF4865_01_laydown.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/b46cd15a2af84612ba8c234448f4acd2_9366/Beyond_JF4865_21_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/bee3bf0eb33a4c678a11492331c48b36_9366/Beyond_JF4865_23_hover_model.jpg",
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/6b64edc8fc8e4c65bb97f9b3e7eb0aaa_9366/Beyond_JF4865_42_detail.jpg"
+    ]
+  }
+]
