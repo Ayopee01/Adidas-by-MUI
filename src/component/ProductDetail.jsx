@@ -14,6 +14,12 @@ import { addToCart } from '../store/cartSlice';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+// ---------- framer-motion ----------
+import { motion, AnimatePresence } from 'framer-motion';
+
+const MotionPaper = motion(Paper);
+const MotionBox = motion(Box);
+const MotionModalBox = motion(Box);
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -74,11 +80,11 @@ const ProductDetail = () => {
       </Box>
     );
 
-  // Prepare images in rows of 2 horizontally (แต่ละ row = [img1, img2])
+  // Prepare images in rows of 2 horizontally
   const images = Array.isArray(selectedColor?.img) ? selectedColor.img : [selectedColor?.img];
   const imageRows = [];
   let rowSize = 2;
-  if (is860down) rowSize = 1; // แถวละ 1 รูป
+  if (is860down) rowSize = 1;
   for (let i = 0; i < images.length; i += rowSize) {
     imageRows.push(images.slice(i, i + rowSize));
   }
@@ -110,11 +116,9 @@ const ProductDetail = () => {
   const handleNext = (e) => { e.stopPropagation(); setModalIdx((prev) => (prev + 1) % images.length); };
 
   // --- Responsive styles ---
-  // กำหนดขนาดรูปแบบอิง breakpoint
   const imageBoxWidth = is500down ? 250 : is860down ? 340 : 400;
   const imageBoxHeight = imageBoxWidth;
 
-  // Breadcrumb & title font
   const breadFontSize = is460down ? 13 : 16;
   const prodNameFont = is460down ? 23 : is500down ? 27 : 33;
 
@@ -141,6 +145,33 @@ const ProductDetail = () => {
     boxShadow: isSelected ? '0 4px 16px rgba(0,0,0,0.14)' : 'none',
     transition: 'all 0.22s'
   });
+
+  // ------- Animation Variants ---------
+  const galleryPaperVariant = {
+    hidden: { opacity: 0, y: 30, scale: 0.97 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { delay: i * 0.1, duration: 0.45, ease: "easeOut" }
+    })
+  };
+
+  const colorBoxVariant = {
+    rest: { scale: 1 },
+    hover: { scale: 1.08, boxShadow: "0 4px 18px rgba(43,127,255,0.16)" }
+  };
+
+  const sizeBtnVariant = {
+    rest: { scale: 1 },
+    hover: { scale: 1.1, backgroundColor: "#222", color: "#fff" }
+  };
+
+  const modalVariant = {
+    hidden: { opacity: 0, scale: 0.88 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.33, ease: "easeOut" } },
+    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.23, ease: "easeIn" } }
+  };
 
   return (
     <Box sx={{
@@ -182,9 +213,15 @@ const ProductDetail = () => {
             {imageRows.map((row, i) => (
               <Box key={i} display="flex" gap={2} width="100%" flexDirection="row" justifyContent="center">
                 {row.map((img, idx) => (
-                  <Paper
+                  <MotionPaper
                     key={idx}
                     elevation={1}
+                    custom={i * rowSize + idx}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                    variants={galleryPaperVariant}
+                    whileHover={{ scale: 1.03, boxShadow: "0 8px 24px 0 rgba(43,127,255,0.13)" }}
                     sx={{
                       borderRadius: 3,
                       overflow: 'hidden',
@@ -202,9 +239,12 @@ const ProductDetail = () => {
                   >
                     {img ? (
                       <>
-                        <img
+                        <motion.img
                           src={img}
                           alt={`product-img-${i * rowSize + idx}`}
+                          initial={{ scale: 0.98, opacity: 0.7 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ duration: 0.35, delay: 0.06 * (i * rowSize + idx) }}
                           style={{
                             width: '100%',
                             height: '100%',
@@ -233,7 +273,7 @@ const ProductDetail = () => {
                         </Box>
                       </>
                     ) : null}
-                  </Paper>
+                  </MotionPaper>
                 ))}
               </Box>
             ))}
@@ -306,9 +346,13 @@ const ProductDetail = () => {
               {allVariants.map((v, idx) => {
                 const isSelected = selectedColor === v;
                 return (
-                  <Box
+                  <MotionBox
                     key={v["text-color"] || v.color}
                     onClick={() => setSelectedColor(v)}
+                    variants={colorBoxVariant}
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
                     sx={colorBoxStyle(isSelected)}
                   >
                     <img
@@ -323,7 +367,7 @@ const ProductDetail = () => {
                     }}>
                       {v["text-color"] || v.color}
                     </Typography>
-                  </Box>
+                  </MotionBox>
                 )
               })}
             </Box>
@@ -332,24 +376,32 @@ const ProductDetail = () => {
             <Typography fontWeight={700} color='#252525' sx={{ mb: 1, fontSize: is460down ? 13.5 : 16 }}>Size</Typography>
             <Box display="flex" flexWrap="wrap" gap={1.3} mb={2}>
               {sizeOptions.map(({ size, qty }) => (
-                <Button
+                <motion.div
                   key={size}
-                  variant={selectedSize === size ? "contained" : "outlined"}
-                  color={selectedSize === size ? "primary" : "inherit"}
-                  disabled={qty === 0}
-                  onClick={() => setSelectedSize(size)}
-                  sx={{
-                    minWidth: 74,
-                    fontWeight: 700,
-                    mb: 1,
-                    color: selectedSize === size ? "#fff" : "#111",
-                    background: selectedSize === size ? "#111" : "#fff",
-                    border: selectedSize === size ? "1.5px solid #111" : "1.5px solid #eee",
-                    transition: "all 0.14s"
-                  }}
+                  variants={sizeBtnVariant}
+                  initial="rest"
+                  whileHover="hover"
+                  animate="rest"
+                  style={{ display: 'inline-block' }}
                 >
-                  {size}
-                </Button>
+                  <Button
+                    variant={selectedSize === size ? "contained" : "outlined"}
+                    color={selectedSize === size ? "primary" : "inherit"}
+                    disabled={qty === 0}
+                    onClick={() => setSelectedSize(size)}
+                    sx={{
+                      minWidth: 74,
+                      fontWeight: 700,
+                      mb: 1,
+                      color: selectedSize === size ? "#fff" : "#111",
+                      background: selectedSize === size ? "#111" : "#fff",
+                      border: selectedSize === size ? "1.5px solid #111" : "1.5px solid #eee",
+                      transition: "all 0.14s"
+                    }}
+                  >
+                    {size}
+                  </Button>
+                </motion.div>
               ))}
             </Box>
             {/* จำนวน */}
@@ -396,63 +448,74 @@ const ProductDetail = () => {
           bgcolor: 'rgba(0,0,0,0.8)'
         }}
       >
-        <Fade in={openModal}>
-          <Box sx={{
-            position: 'relative',
-            outline: 'none',
-            maxWidth: '90vw',
-            maxHeight: '90vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <IconButton
-              onClick={handleCloseModal}
+        <AnimatePresence>
+          {openModal && (
+            <MotionModalBox
+              variants={modalVariant}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               sx={{
-                position: 'absolute',
-                top: 10, right: 10, color: '#fff', zIndex: 10,
-                background: 'rgba(0,0,0,0.25)', '&:hover': { background: 'rgba(0,0,0,0.5)' }
+                position: 'relative',
+                outline: 'none',
+                maxWidth: '90vw',
+                maxHeight: '90vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              <CloseIcon fontSize="large" />
-            </IconButton>
-            {images.length > 1 && (
               <IconButton
-                onClick={handlePrev}
+                onClick={handleCloseModal}
                 sx={{
-                  position: 'absolute', left: 10, top: '50%',
-                  transform: 'translateY(-50%)', color: '#fff',
-                  background: 'rgba(0,0,0,0.2)', '&:hover': { background: 'rgba(0,0,0,0.5)' }
+                  position: 'absolute',
+                  top: 10, right: 10, color: '#fff', zIndex: 10,
+                  background: 'rgba(0,0,0,0.25)', '&:hover': { background: 'rgba(0,0,0,0.5)' }
                 }}
               >
-                <ChevronLeftIcon fontSize="large" />
+                <CloseIcon fontSize="large" />
               </IconButton>
-            )}
-            <img
-              src={images[modalIdx]}
-              alt={`product-large-${modalIdx}`}
-              style={{
-                maxHeight: '85vh',
-                maxWidth: '85vw',
-                borderRadius: 10,
-                boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
-                background: '#fff'
-              }}
-            />
-            {images.length > 1 && (
-              <IconButton
-                onClick={handleNext}
-                sx={{
-                  position: 'absolute', right: 10, top: '50%',
-                  transform: 'translateY(-50%)', color: '#fff',
-                  background: 'rgba(0,0,0,0.2)', '&:hover': { background: 'rgba(0,0,0,0.5)' }
+              {images.length > 1 && (
+                <IconButton
+                  onClick={handlePrev}
+                  sx={{
+                    position: 'absolute', left: 10, top: '50%',
+                    transform: 'translateY(-50%)', color: '#fff',
+                    background: 'rgba(0,0,0,0.2)', '&:hover': { background: 'rgba(0,0,0,0.5)' }
+                  }}
+                >
+                  <ChevronLeftIcon fontSize="large" />
+                </IconButton>
+              )}
+              <motion.img
+                src={images[modalIdx]}
+                alt={`product-large-${modalIdx}`}
+                initial={{ scale: 0.98, opacity: 0.6 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.35 }}
+                style={{
+                  maxHeight: '85vh',
+                  maxWidth: '85vw',
+                  borderRadius: 10,
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
+                  background: '#fff'
                 }}
-              >
-                <ChevronRightIcon fontSize="large" />
-              </IconButton>
-            )}
-          </Box>
-        </Fade>
+              />
+              {images.length > 1 && (
+                <IconButton
+                  onClick={handleNext}
+                  sx={{
+                    position: 'absolute', right: 10, top: '50%',
+                    transform: 'translateY(-50%)', color: '#fff',
+                    background: 'rgba(0,0,0,0.2)', '&:hover': { background: 'rgba(0,0,0,0.5)' }
+                  }}
+                >
+                  <ChevronRightIcon fontSize="large" />
+                </IconButton>
+              )}
+            </MotionModalBox>
+          )}
+        </AnimatePresence>
       </Modal>
     </Box>
   );
