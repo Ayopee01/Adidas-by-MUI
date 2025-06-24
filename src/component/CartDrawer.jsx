@@ -36,7 +36,7 @@ const CartDrawer = ({ open, onClose }) => {
       .catch(() => setProducts([]));
   }, []);
 
-  // Utilities (เหมือนเดิม)
+  // Utilities
   const findProduct = (item) =>
     products.find(p => p.id === item.id);
 
@@ -140,7 +140,7 @@ const CartDrawer = ({ open, onClose }) => {
         PaperProps={{
           sx: {
             top: `${CART_DRAWER_HEIGHT}px`,
-            height: `calc(93vh - ${CART_DRAWER_HEIGHT}px)`,
+            height: `calc(80vh - ${CART_DRAWER_HEIGHT}px)`,
             width: 370,
             maxWidth: "95vw",
             borderTopLeftRadius: 20,
