@@ -99,17 +99,20 @@ const SaleBadge = styled(Box)(() => ({
   boxShadow: '0 2px 8px rgba(255, 0, 0, 0.08)'
 }));
 
-const ImageContainer = styled(Box)(() => ({
+const ImageContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
   width: '100%',
-  height: '280px',
+  height: '360px', // เดิม 280px
   overflow: 'hidden',
   cursor: 'pointer',
   backgroundColor: '#fafafa',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  '&:hover .zoom-overlay': { opacity: 1 }
+  '&:hover .zoom-overlay': { opacity: 1 },
+  [theme.breakpoints.down('485')]: {
+    height: '210px', // เดิม 160-180px
+  }
 }));
 
 const ZoomOverlay = styled(Box)(() => ({
@@ -221,11 +224,11 @@ const StyledChip = styled(Chip)(() => ({
   border: `1px solid ${colors.border}`,
 }));
 
-const StyledButton = styled(Button)(({ disabled }) => ({
+const StyledButton = styled(Button)(({ theme, disabled }) => ({
   borderRadius: 6,
   height: 48,
   fontWeight: 700,
-  fontSize: 18,
+  fontSize: 14,
   letterSpacing: 0.5,
   boxShadow: 'none',
   backgroundColor: disabled ? colors.disabled : colors.primary,
@@ -233,6 +236,8 @@ const StyledButton = styled(Button)(({ disabled }) => ({
   border: disabled ? `1.5px solid ${colors.disabled}` : `1.5px solid ${colors.primary}`,
   cursor: disabled ? 'not-allowed' : 'pointer',
   transition: 'all .15s cubic-bezier(.4,0,.2,1)',
+  paddingLeft: 24,
+  paddingRight: 24,
   '&:hover': !disabled
     ? {
       backgroundColor: "#222",
@@ -241,6 +246,29 @@ const StyledButton = styled(Button)(({ disabled }) => ({
       boxShadow: '0 8px 30px 0 rgba(0,0,0,0.12)',
     }
     : {},
+  // responsive
+  [theme.breakpoints.down('md')]: {
+    fontSize: 14,
+    height: 42,
+    paddingLeft: 24,
+    paddingRight: 24,
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 14,
+    height: 38,
+    minHeight: 38,
+    padding: '10px 8px',
+    paddingLeft: 24,
+    paddingRight: 24,
+  },
+  [theme.breakpoints.down('485')]: {
+    fontSize: 13,
+    height: 34,
+    minHeight: 34,
+    padding: '8px 6px',
+    paddingLeft: 24,
+    paddingRight: 24,
+  }
 }));
 
 const PriceTypography = styled(Typography)(() => ({
@@ -531,169 +559,169 @@ const Product = () => {
               <CircularProgress size={60} sx={{ color: colors.primary }} />
             </Box>
           ) : (
-            <Grid
-              container
-              spacing={4}
-              justifyContent="center"
-              alignItems="stretch"
-              sx={{ alignItems: 'stretch', flexWrap: 'wrap' }}
-            >
-              {filteredProducts.map((product) => {
-                const activeVariant = selectedVariants[product.name] || product;
-                const allSizes = activeVariant.clothing_sizes || activeVariant.shoe_sizes || [];
-                const currentSize =
-                  selectedSizes[product.name] ||
-                  (allSizes.length > 0 ? allSizes[0].size : '');
-                const getCurrentStock = () => {
-                  const sz = allSizes.find(s => s.size === currentSize);
-                  return sz ? sz.qty : activeVariant.stock || 0;
-                };
-                return (
-                  <Grid
-                    key={product.id || product.name}
-                    sx={{
-                      display: 'flex',
-                      width: { xs: '100%', sm: '50%', md: '33.3333%', lg: '25%' },
-                      maxWidth: { xs: '100%', sm: '50%', md: '33.3333%', lg: '25%' },
-                      flex: '0 0 auto',
-                    }}
-                  >
-                    <StyledCard>
-                      {activeVariant.discount > 0 && (
-                        <SaleBadge>
-                          SALE <span>-{activeVariant.discount}%</span>
-                        </SaleBadge>
-                      )}
-                      <ImageContainer onClick={() => handleImageClick(activeVariant.img)}>
-                        <CardMedia
-                          component="img"
-                          image={Array.isArray(activeVariant.img) ? activeVariant.img[0] : activeVariant.img}
-                          alt={activeVariant.name}
-                          sx={{
-                            width: '100%',
-                            height: '100%',
-                            minHeight: 180,
-                            maxHeight: 280,
-                            objectFit: 'contain',
-                            objectPosition: 'center',
-                            backgroundColor: "#ebeeef"
-                          }}
-                        />
-                        <ZoomOverlay className="zoom-overlay">
-                          <ZoomInIcon sx={{ color: '#fff', fontSize: 40 }} />
-                        </ZoomOverlay>
-                      </ImageContainer>
-                      <CardContent sx={{
-                        flex: '1 1 auto',
-                        display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '20px'
-                      }}>
-                        {/* UI Name Product */}
-                        <Box>
-                          <Typography
-                            variant="h6"
-                            fontWeight="bold"
-                            component={RouterLink}
-                            to={`/product/${activeVariant.id || product.id}`}
+            <Box sx={{ px: { xs: 4, sm: 3, md: 0 } }}>
+              <Grid
+                container
+                spacing={4}
+                justifyContent="center"
+                alignItems="stretch"
+                sx={{ alignItems: 'stretch', flexWrap: 'wrap' }}
+              >
+                {filteredProducts.map((product) => {
+                  const activeVariant = selectedVariants[product.name] || product;
+                  const allSizes = activeVariant.clothing_sizes || activeVariant.shoe_sizes || [];
+                  const currentSize =
+                    selectedSizes[product.name] ||
+                    (allSizes.length > 0 ? allSizes[0].size : '');
+                  const getCurrentStock = () => {
+                    const sz = allSizes.find(s => s.size === currentSize);
+                    return sz ? sz.qty : activeVariant.stock || 0;
+                  };
+                  return (
+                    <Grid
+                      key={product.id || product.name}
+                      sx={{
+                        display: 'flex',
+                        width: { xs: '100%', sm: '50%', md: '33.3333%', lg: '25%' },
+                        maxWidth: { xs: '100%', sm: '50%', md: '33.3333%', lg: '25%' },
+                        flex: '0 0 auto',
+                      }}
+                    >
+                      <StyledCard>
+                        {activeVariant.discount > 0 && (
+                          <SaleBadge>
+                            SALE <span>-{activeVariant.discount}%</span>
+                          </SaleBadge>
+                        )}
+                        <ImageContainer onClick={() => handleImageClick(activeVariant.img)}>
+                          <CardMedia
+                            component="img"
+                            image={Array.isArray(activeVariant.img) ? activeVariant.img[0] : activeVariant.img}
+                            alt={activeVariant.name}
                             sx={{
-                              mb: 1,
-                              color: colors.primary,
-                              minHeight: '56px',
-                              display: '-webkit-box',
-                              WebkitLineClamp: 2,
-                              WebkitBoxOrient: 'vertical',
-                              overflow: 'hidden',
-                              fontSize: is485down ? '0.95rem' : '1rem',
-                              wordBreak: 'break-word',
-                              maxWidth: '240px',
-                              whiteSpace: 'normal',
-                              textDecoration: 'none',
-                              transition: 'color 0.2s',
-                              cursor: 'pointer',
-                              '&:hover': { color: '#2b7fff' },
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'contain',
+                              objectPosition: 'center',
+                              backgroundColor: "#ebeeef"
                             }}
-                          >
-                            {activeVariant.name}
-                          </Typography>
-                          <StyledChip
-                            label={activeVariant['text-color'] || activeVariant.color}
-                            size="small"
                           />
-                          <Box display="flex" alignItems="center" gap={1} mb={1}>
-                            <PriceTypography>
-                              ฿{(activeVariant.price || activeVariant.originalPrice || 0).toLocaleString()}
-                            </PriceTypography>
-                            {activeVariant.discount > 0 && (
-                              <PriceOldTypography>
-                                ฿{activeVariant.originalPrice?.toLocaleString()}
-                              </PriceOldTypography>
-                            )}
-                          </Box>
-                          {allSizes.length > 0 && (
-                            <Box mb={2}>
-                              <FormControl size="small" sx={{ minWidth: 100, background: "#f6f8fa", borderRadius: 2 }}>
-                                <InputLabel id={`size-label-${product.name}`}>Size</InputLabel>
-                                <Select
-                                  labelId={`size-label-${product.name}`}
-                                  value={currentSize}
-                                  label="Size"
-                                  onChange={e => handleSizeChange(product.name, e.target.value)}
-                                  sx={{ fontWeight: 700 }}
-                                >
-                                  {allSizes.map((s, idx) => (
-                                    <MenuItem value={s.size} key={idx}>{s.size}</MenuItem>
-                                  ))}
-                                </Select>
-                              </FormControl>
+                          <ZoomOverlay className="zoom-overlay">
+                            <ZoomInIcon sx={{ color: '#fff', fontSize: 40 }} />
+                          </ZoomOverlay>
+                        </ImageContainer>
+                        <CardContent sx={{
+                          flex: '1 1 auto',
+                          display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '20px'
+                        }}>
+                          {/* UI Name Product */}
+                          <Box>
+                            <Typography
+                              variant="h6"
+                              fontWeight="bold"
+                              component={RouterLink}
+                              to={`/product/${activeVariant.id || product.id}`}
+                              sx={{
+                                mb: 1,
+                                color: colors.primary,
+                                minHeight: '56px',
+                                display: '-webkit-box',
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                                fontSize: is485down ? '0.95rem' : '1rem',
+                                wordBreak: 'break-word',
+                                maxWidth: '240px',
+                                whiteSpace: 'normal',
+                                textDecoration: 'none',
+                                transition: 'color 0.2s',
+                                cursor: 'pointer',
+                                '&:hover': { color: '#2b7fff' },
+                              }}
+                            >
+                              {activeVariant.name}
+                            </Typography>
+                            <StyledChip
+                              label={activeVariant['text-color'] || activeVariant.color}
+                              size="small"
+                            />
+                            <Box display="flex" alignItems="center" gap={1} mb={1}>
+                              <PriceTypography>
+                                ฿{(activeVariant.price || activeVariant.originalPrice || 0).toLocaleString()}
+                              </PriceTypography>
+                              {activeVariant.discount > 0 && (
+                                <PriceOldTypography>
+                                  ฿{activeVariant.originalPrice?.toLocaleString()}
+                                </PriceOldTypography>
+                              )}
                             </Box>
-                          )}
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              mb: 2,
-                              color: getCurrentStock() <= 0 ? '#f44336' : (getCurrentStock() > 5 ? '#2b7fff' : '#fbc02d'),
-                              fontWeight: 700
-                            }}
-                          >
-                            เหลือ {getCurrentStock()} ชิ้น {currentSize && `(${currentSize})`}
-                          </Typography>
-                          <StyledButton
-                            fullWidth
-                            disabled={getCurrentStock() <= 0}
-                            startIcon={getCurrentStock() <= 0 ? <BlockIcon /> : <ShoppingCartIcon />}
-                            onClick={() => handleAddToCart(product, activeVariant, currentSize)}
-                          >
-                            {getCurrentStock() <= 0 ? 'OUT OF STOCK' : 'ADD TO CART'}
-                          </StyledButton>
-                          <Typography
-                            variant="caption"
-                            sx={{
-                              color: colors.gray,
-                              fontWeight: 600,
-                              mb: 1,
-                              pt: 2,
-                              display: 'block'
-                            }}
-                          >
-                            สีที่มีจำหน่าย
-                          </Typography>
-                          <Box display="flex" gap={1} mb={2} flexWrap="wrap">
-                            {product.variants?.map((variant, i) => (
-                              <ColorDot
-                                key={i}
-                                colors={Array.isArray(variant.color) ? variant.color : [variant.color]}
-                                selected={selectedVariants[product.name]?.color === variant.color ||
-                                  (!selectedVariants[product.name] && product.variants[0].color === variant.color)}
-                                onClick={() => handleVariantSelect(product.name, variant)}
-                              />
-                            ))}
+                            {allSizes.length > 0 && (
+                              <Box mb={2}>
+                                <FormControl size="small" sx={{ minWidth: 100, background: "#f6f8fa", borderRadius: 2 }}>
+                                  <InputLabel id={`size-label-${product.name}`}>Size</InputLabel>
+                                  <Select
+                                    labelId={`size-label-${product.name}`}
+                                    value={currentSize}
+                                    label="Size"
+                                    onChange={e => handleSizeChange(product.name, e.target.value)}
+                                    sx={{ fontWeight: 700 }}
+                                  >
+                                    {allSizes.map((s, idx) => (
+                                      <MenuItem value={s.size} key={idx}>{s.size}</MenuItem>
+                                    ))}
+                                  </Select>
+                                </FormControl>
+                              </Box>
+                            )}
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                mb: 2,
+                                color: getCurrentStock() <= 0 ? '#f44336' : (getCurrentStock() > 5 ? '#2b7fff' : '#fbc02d'),
+                                fontWeight: 700
+                              }}
+                            >
+                              เหลือ {getCurrentStock()} ชิ้น {currentSize && `(${currentSize})`}
+                            </Typography>
+                            <StyledButton
+                              // fullWidth
+                              disabled={getCurrentStock() <= 0}
+                              startIcon={getCurrentStock() <= 0 ? <BlockIcon /> : <ShoppingCartIcon />}
+                              onClick={() => handleAddToCart(product, activeVariant, currentSize)}
+                            >
+                              {getCurrentStock() <= 0 ? 'OUT OF STOCK' : 'ADD TO CART'}
+                            </StyledButton>
+                            <Typography
+                              variant="caption"
+                              sx={{
+                                color: colors.gray,
+                                fontWeight: 600,
+                                mb: 1,
+                                pt: 2,
+                                display: 'block'
+                              }}
+                            >
+                              สีที่มีจำหน่าย
+                            </Typography>
+                            <Box display="flex" gap={1} mb={2} flexWrap="wrap">
+                              {product.variants?.map((variant, i) => (
+                                <ColorDot
+                                  key={i}
+                                  colors={Array.isArray(variant.color) ? variant.color : [variant.color]}
+                                  selected={selectedVariants[product.name]?.color === variant.color ||
+                                    (!selectedVariants[product.name] && product.variants[0].color === variant.color)}
+                                  onClick={() => handleVariantSelect(product.name, variant)}
+                                />
+                              ))}
+                            </Box>
                           </Box>
-                        </Box>
-                      </CardContent>
-                    </StyledCard>
-                  </Grid>
-                );
-              })}
-            </Grid>
+                        </CardContent>
+                      </StyledCard>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            </Box>
           )}
         </Container>
 
