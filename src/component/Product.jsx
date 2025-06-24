@@ -314,7 +314,7 @@ const Product = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const res = await axios.get('http://localhost:5000/api/products');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`);
         const merged = Object.values(
           res.data.reduce((acc, item) => {
             const key = item.name;
