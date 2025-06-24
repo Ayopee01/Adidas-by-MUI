@@ -174,6 +174,7 @@ const ColorDot = styled(Box)(({ colors: dotColors = [], selected }) => ({
 
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   marginBottom: '32px',
+  minHeight: 0,
   '& .MuiTabs-flexContainer': {
     flexWrap: 'nowrap',
     [theme.breakpoints.down('740')]: {
@@ -203,7 +204,11 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
   '& .MuiTabs-indicator': {
     backgroundColor: colors.primary,
     height: 3,
-    borderRadius: '2px'
+    borderRadius: '2px',
+    transition: 'all 0.3s cubic-bezier(.4,0,.2,1)',
+    [theme.breakpoints.down('740')]: {
+      display: 'none', // ซ่อนเส้น indicator เดิม
+    }
   }
 }));
 
@@ -271,6 +276,39 @@ const Product = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState([]);
   const [modalIndex, setModalIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
+  const tabRefs = useRef([]);
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, top: 0 });
+
+
+  useEffect(() => {
+    if (!is740down) return; // ทำเฉพาะมือถือ
+    const el = tabRefs.current[tabIndex];
+    if (el) {
+      const parentRect = el.parentNode.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
+      setIndicator({
+        left: rect.left - parentRect.left,
+        width: rect.width,
+        top: rect.top - parentRect.top + rect.height // ให้เส้นอยู่ใต้ตัวอักษร
+      });
+    }
+    // อย่าลืมให้ re-calc เมื่อ resize
+    const onResize = () => {
+      const el = tabRefs.current[tabIndex];
+      if (el) {
+        const parentRect = el.parentNode.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
+        setIndicator({
+          left: rect.left - parentRect.left,
+          width: rect.width,
+          top: rect.top - parentRect.top + rect.height
+        });
+      }
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [tabIndex, is740down]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -395,15 +433,41 @@ const Product = () => {
           <Divider sx={{ mb: 5, borderColor: colors.border }} />
 
           {/* Tabs responsive */}
-          <StyledTabs
-            value={category}
-            onChange={(e, newValue) => setCategory(newValue)}
-            centered={!is740down}
-          >
-            {categories.map((cat) => (
-              <Tab key={cat} label={cat} value={cat} />
-            ))}
-          </StyledTabs>
+          <Box sx={{ position: 'relative', width: '100%' }}>
+            <StyledTabs
+              value={tabIndex}
+              onChange={(e, newIndex) => {
+                setTabIndex(newIndex);
+                setCategory(categories[newIndex]);
+              }}
+              centered={!is740down}
+            >
+              {categories.map((cat, i) => (
+                <Tab
+                  key={cat}
+                  label={cat}
+                  value={i}
+                  ref={el => (tabRefs.current[i] = el)}
+                />
+              ))}
+            </StyledTabs>
+            {/* เส้น line ใต้ tab ที่เลือก (custom) */}
+            {is740down && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  left: indicator.left,
+                  top: indicator.top,
+                  width: indicator.width,
+                  height: 3,
+                  bgcolor: colors.primary,
+                  borderRadius: '2px',
+                  transition: 'all 0.25s cubic-bezier(.4,0,.2,1)',
+                  pointerEvents: 'none'
+                }}
+              />
+            )}
+          </Box>
 
           {/* Responsive filter/search */}
           <Box
@@ -472,7 +536,7 @@ const Product = () => {
               spacing={4}
               justifyContent="center"
               alignItems="stretch"
-              sx={{ alignItems: 'stretch' }}
+              sx={{ alignItems: 'stretch', flexWrap: 'wrap' }}
             >
               {filteredProducts.map((product) => {
                 const activeVariant = selectedVariants[product.name] || product;
@@ -485,7 +549,15 @@ const Product = () => {
                   return sz ? sz.qty : activeVariant.stock || 0;
                 };
                 return (
-                  <Grid item xs={12} sm={6} md={4} lg={3} key={product.id || product.name} sx={{ display: 'flex' }}>
+                  <Grid
+                    key={product.id || product.name}
+                    sx={{
+                      display: 'flex',
+                      width: { xs: '100%', sm: '50%', md: '33.3333%', lg: '25%' },
+                      maxWidth: { xs: '100%', sm: '50%', md: '33.3333%', lg: '25%' },
+                      flex: '0 0 auto',
+                    }}
+                  >
                     <StyledCard>
                       {activeVariant.discount > 0 && (
                         <SaleBadge>

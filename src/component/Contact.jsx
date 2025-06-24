@@ -112,7 +112,7 @@ const Contact = () => {
                         </Typography>
                         <form ref={form} id="contact" onSubmit={handleSubmit(onSubmit)} noValidate>
                             <Grid container spacing={2} direction="column">
-                                <Grid item xs={12}>
+                                <Grid>
                                     <TextField
                                         fullWidth
                                         label="First Name"
@@ -131,7 +131,7 @@ const Contact = () => {
                                         FormHelperTextProps={{ style: { color: "#e57373" } }}
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid>
                                     <TextField
                                         fullWidth
                                         label="Last Name"
@@ -150,7 +150,7 @@ const Contact = () => {
                                         FormHelperTextProps={{ style: { color: "#e57373" } }}
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid>
                                     <TextField
                                         fullWidth
                                         label="Email"
@@ -173,7 +173,7 @@ const Contact = () => {
                                         FormHelperTextProps={{ style: { color: "#e57373" } }}
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid>
                                     <TextField
                                         fullWidth
                                         label="Phone"
@@ -196,7 +196,7 @@ const Contact = () => {
                                         FormHelperTextProps={{ style: { color: "#e57373" } }}
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid>
                                     <TextField
                                         fullWidth
                                         label="Subject"
@@ -209,7 +209,7 @@ const Contact = () => {
                                         {...register("subject")}
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid>
                                     <TextField
                                         fullWidth
                                         label="Message"
@@ -227,7 +227,7 @@ const Contact = () => {
                                         FormHelperTextProps={{ style: { color: "#e57373" } }}
                                     />
                                 </Grid>
-                                <Grid item xs={12}
+                                <Grid
                                     sx={{
                                         display: 'flex',
                                         justifyContent: 'center',

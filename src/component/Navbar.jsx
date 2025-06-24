@@ -102,6 +102,7 @@ const Navbar = () => {
             position: 'relative'
           }}
         >
+          {/* Hamburger - mobile only */}
           {isMobile && (
             <IconButton
               sx={{
@@ -110,7 +111,10 @@ const Navbar = () => {
                 mx: { xs: 2, sm: 7 }, borderRadius: 2, bgcolor: '#f8f8f8',
                 '&:hover': { bgcolor: '#e3e3e3' }
               }}
-              onClick={() => setDrawerOpen(true)}
+              onClick={() => {
+                setCartDrawerOpen(false); // ปิด Cart ถ้ามี
+                setDrawerOpen(true);      // แล้วเปิด Hamburger
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -160,7 +164,10 @@ const Navbar = () => {
                 color: '#111', ml: 1, border: '1.5px solid #ececec', borderRadius: 2,
                 bgcolor: '#f8f8f8', '&:hover': { bgcolor: '#e3e3e3' }
               }}
-              onClick={() => setCartDrawerOpen(true)}
+              onClick={() => {
+                setDrawerOpen(false);      // ปิด Hamburger ถ้ามี
+                setCartDrawerOpen(true);   // แล้วเปิด Cart
+              }}
             >
               <Badge badgeContent={cartItemCount} color="error" showZero>
                 <ShoppingCartIcon />

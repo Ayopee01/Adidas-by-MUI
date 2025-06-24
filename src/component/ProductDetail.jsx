@@ -17,9 +17,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 // ---------- framer-motion ----------
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MotionPaper = motion(Paper);
-const MotionBox = motion(Box);
-const MotionModalBox = motion(Box);
+const MotionPaper = motion.create(Paper);
+const MotionBox = motion.create(Box);
+const MotionModalBox = motion.create(Box);
 
 const ProductDetail = () => {
   const { id } = useParams();
