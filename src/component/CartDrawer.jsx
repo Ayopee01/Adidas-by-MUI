@@ -140,7 +140,7 @@ const CartDrawer = ({ open, onClose }) => {
         PaperProps={{
           sx: {
             top: `${CART_DRAWER_HEIGHT}px`,
-            height: `calc(80vh - ${CART_DRAWER_HEIGHT}px)`,
+            height: `calc(85vh - ${CART_DRAWER_HEIGHT}px)`,
             width: 370,
             maxWidth: "95vw",
             borderTopLeftRadius: 20,
