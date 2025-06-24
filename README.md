@@ -1,11 +1,10 @@
 🛒 Adidas-by-MUI
 
-This project is a simulation of an E-commerce platform, with the frontend developed using React and MUI (Material-UI), and the backend developed with Node.js, Express.js, and Axios. The backend uses mock data in JSON format, stored in the "Backend" folder of the project, and serves this data to the frontend.
+This project is a simulation of an E-commerce platform. The frontend is developed using React and MUI (Material-UI), while the backend is built with Node.js, Express.js, and Axios. The backend connects to mock data in JSON format, located in the Backend folder (WebService-API-Adidas), and provides this data to be displayed on the frontend.
 
 How to Use
-1. Clone this project and install all dependencies by running npm i.
-2. Open a terminal and navigate to the Backend folder using cd Backend. Start the backend server with node server.js. You should see the message “Server is running on port 5000” in the terminal.
-3. Open a new terminal window and run npm run dev as usual to start the frontend. You will then be able to view and use the project.
+1. Clone this project and install all required dependencies using npm install.
+2. Run the project with npm run dev as usual, and you will be able to view the results of this project.
 
 Features
 - Navbar: A sticky navigation bar with smooth scrolling for convenient navigation between different sections of the project.
@@ -25,12 +24,11 @@ Thank you!
 🛒 Adidas-by-MUI
 
 Project นี้เป็นการจำลอง Web รูปแบบของ E-commerce platform โดยจะพัฒนาในส่วนของ Frontend ด้วย React and MUI(Material-ui) 
-พัฒนาในส่วน Backend ด้วย Node JS, Express.js and axios โดยเชื่อมต่อข้อมูลจำลองรูปแบบ Json ใน Folder Backend ใน Project ดึงข้อมูลมาแสดงในส่วนของ Front end
+พัฒนาในส่วน Backend ด้วย Node JS, Express.js and axios โดยเชื่อมต่อข้อมูลจำลองรูปแบบ Json ใน Folder Backend (WebService-API-Adidas) ของ Project ดึงข้อมูลมาแสดงในส่วนของ Front end
 
 วิธีใช้งาน
 1. Clone project นี้แล้วทำการติดตั้ง npm i ต่างๆ
-2. เปิด Terminal และใช้คำสั่ง CD เข้าไป Folder Backend และใช้งานได้ด้วยคำสั่ง node.server.js จะแสดงข้อความ “Server is running on port 5000” ที่ช่อง Terminal 
-3. เปิด New Terminal ขึ้นมาอีกหน้าใช้คำสั่ง npm run dev ตามปกติก็จะสามารถรับชมผลงาน project นี้ได้
+3. npm run dev ตามปกติก็จะสามารถรับชมผลงาน project นี้ได้
 
 ฟังก์ชั่น
 - Navbar เป็นรูปแบบ A sticky navigation bar และสามารถกด Smooth scrolling เพื่อให้สามารถไปยัง เมนูต่างๆได้อย่างสะดวกยิ่งขึ้นโดยจะ Link ไปในแต่ละ Section ที่มีใน Project
