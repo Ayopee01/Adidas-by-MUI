@@ -12,6 +12,7 @@ import {
     Alert,
     Paper
 } from '@mui/material';
+import { Link } from '@mui/material';
 
 const adidasDark = '#1b1c1c';
 const adidasBlue = '#1c53e6';
@@ -300,7 +301,23 @@ const Contact = () => {
                 opacity: 0.7,
                 fontFamily: 'Montserrat, Roboto, sans-serif'
             }}>
-                © {new Date().getFullYear()} All rights reserved by Pee ple.
+                © {new Date().getFullYear()} All rights reserved by{' '}
+                <Link
+                    href="https://www.facebook.com/pee.ple.77/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                        color: '#fff',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        transition: 'color 0.2s',
+                        '&:hover': {
+                            color: adidasBlue,
+                        }
+                    }}
+                >
+                    Pee ple.
+                </Link>
             </Box>
         </Box>
     );
