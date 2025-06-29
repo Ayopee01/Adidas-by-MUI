@@ -14,6 +14,7 @@ import { motion, useAnimation } from "framer-motion";
 import axios from "axios";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import PaymentModal from './PaymentModal';
+import { useTheme } from "@mui/material/styles";
 
 const CART_DRAWER_HEIGHT = 100;
 const shakeVariant = {
@@ -26,8 +27,10 @@ const CartDrawer = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const controls = useAnimation();
   const [products, setProducts] = useState([]);
-  const [payOpen, setPayOpen] = useState(false);
+  const [payOpen, setPayOpen] = useState(false); // State ถูกต้อง
   const isMobile370 = useMediaQuery('(max-width:370px)');
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
 
   useEffect(() => { if (open) controls.start("shake"); }, [open, controls]);
   useEffect(() => {
@@ -36,7 +39,7 @@ const CartDrawer = ({ open, onClose }) => {
       .catch(() => setProducts([]));
   }, []);
 
-  // Utilities
+  // Utils
   const findProduct = (item) =>
     products.find(p => p.id === item.id);
 
@@ -130,7 +133,15 @@ const CartDrawer = ({ open, onClose }) => {
   const getTotal = () =>
     cart.reduce((acc, item) => acc + getPrice(item) * (item.quantity || 1), 0);
 
-  // ====== Render ======
+  // --- ฟังก์ชันล้างตะกร้า (Redux) ---
+  const handleClearCart = () => dispatch(clearCart());
+
+  // --- หลังชำระเงินเสร็จ (onSuccess) ---
+  const handleSuccess = () => {
+    handleClearCart(); // ล้างตะกร้าทันทีหลังทำรายการ
+    setPayOpen(false); // ปิด popup PaymentModal
+  };
+
   return (
     <>
       <Drawer
@@ -146,7 +157,7 @@ const CartDrawer = ({ open, onClose }) => {
             borderTopLeftRadius: 20,
             borderBottomLeftRadius: 20,
             overflow: "hidden",
-            bgcolor: "#111",
+            bgcolor: isDark ? "#111" : "#f6f6f8",
             boxShadow: 8,
             right: 15,
             position: 'fixed',
@@ -161,49 +172,50 @@ const CartDrawer = ({ open, onClose }) => {
           style={{ height: "100%" }}
         >
           <Box sx={{
-            display: "flex", flexDirection: "column", height: "100%", bgcolor: "#111"
+            display: "flex", flexDirection: "column", height: "100%", bgcolor: isDark ? "#111" : "#f6f6f8"
           }}>
             {/* Header */}
             <Box sx={{
               p: 0, display: "flex", alignItems: "center",
-              minHeight: 66, px: 3, bgcolor: "#222",
+              minHeight: 66, px: 3, bgcolor: isDark ? "#222" : "#fff",
               borderTopLeftRadius: 20, borderBottomRightRadius: 44,
-              borderBottom: "1px solid #232323",
+              borderBottom: `1px solid ${isDark ? "#232323" : "#e0e0e0"}`,
             }}>
               <Typography
                 variant="h6"
                 fontWeight={700}
-                sx={{ color: "#fff", flex: 1, letterSpacing: 0.2 }}
+                sx={{ color: isDark ? "#fff" : "#222", flex: 1, letterSpacing: 0.2 }}
               >Shopping Cart</Typography>
               <Typography sx={{
-                color: "#bbb", fontSize: 15, fontWeight: 400, mr: 2,
+                color: isDark ? "#bbb" : "#888", fontSize: 15, fontWeight: 400, mr: 2,
                 minWidth: 56, textAlign: "right"
               }}>
                 {cart.length} items
               </Typography>
               <Tooltip title="Close" arrow>
                 <IconButton onClick={onClose} sx={{
-                  color: "#fff", bgcolor: "rgba(255,255,255,0.09)",
-                  "&:hover": { bgcolor: "#fff", color: "#222" }, ml: 1,
+                  color: isDark ? "#fff" : "#222", bgcolor: isDark ? "rgba(255,255,255,0.07)" : "#f4f4f4",
+                  "&:hover": { bgcolor: isDark ? "#fff" : "#222", color: isDark ? "#222" : "#fff" }, ml: 1,
                 }}><CloseIcon /></IconButton>
               </Tooltip>
             </Box>
 
             {/* Cart List */}
             <Box sx={{
-              flex: 1, overflowY: "auto", px: 2, pt: 2, pb: 1, bgcolor: "#111", minHeight: 0,
+              flex: 1, overflowY: "auto", px: 2, pt: 2, pb: 1, bgcolor: isDark ? "#111" : "#f6f6f8", minHeight: 0,
             }}>
               {cart.length === 0 ? (
-                <Typography align="center" color="text.secondary" mt={10} fontSize={18} sx={{ color: "#666" }}>
+                <Typography align="center" color="text.secondary" mt={10} fontSize={18} sx={{ color: isDark ? "#666" : "#888" }}>
                   Your cart is empty.
                 </Typography>
               ) : (
                 cart.map((item, idx) => {
-                  const stock = getStock(item);
-                  const colorOptions = getColors(item);
                   const sizeOptions = getSizes(item, item.color);
+                  const colorOptions = getColors(item);
+                  const stock = getStock(item);
                   const price = getPrice(item);
                   const imgUrl = Array.isArray(item.img) ? item.img[0] : item.img;
+
                   return (
                     <Box
                       key={item.id + (item.color || "") + (item.size || "")}
@@ -213,7 +225,7 @@ const CartDrawer = ({ open, onClose }) => {
                         mb: 2.2,
                         p: 2,
                         borderRadius: 3,
-                        bgcolor: "#181818",
+                        bgcolor: isDark ? "#181818" : "#fff",
                         minHeight: 116,
                         boxShadow: "0 2px 10px rgba(0,0,0,0.10)",
                         gap: 2,
@@ -240,16 +252,16 @@ const CartDrawer = ({ open, onClose }) => {
                             width: "100%",
                             height: "100%",
                             objectFit: "cover",
-                            background: "#f6f6f6",
+                            background: isDark ? "#222" : "#f6f6f6",
                             display: "block",
                           }}
                         />
                         {/* Badge (Qty) - Top Left */}
                         <Box sx={{
                           position: "absolute",
-                          top: 0,         // มุมบน
-                          left: 0,        // มุมซ้าย
-                          width: 26, height: 26, bgcolor: "#0bf",
+                          top: 0,
+                          left: 0,
+                          width: 26, height: 26, bgcolor: "#1c53e6",
                           border: "2px solid #fff",
                           borderRadius: "50%",
                           color: "#fff", fontWeight: 800, fontSize: 16,
@@ -264,8 +276,7 @@ const CartDrawer = ({ open, onClose }) => {
                             size="small"
                             sx={{
                               position: "absolute",
-                              top: 0,           // มุมบน
-                              right: 0,         // มุมขวา
+                              top: 0, right: 0,
                               color: "#fff", bgcolor: "#e94242",
                               border: "2px solid #fff", p: 0.5, boxShadow: 2,
                               "&:hover": { bgcolor: "#c22" },
@@ -286,7 +297,7 @@ const CartDrawer = ({ open, onClose }) => {
                           <Typography
                             fontWeight={700}
                             fontSize={15}
-                            color="#fff"
+                            color={isDark ? "#fff" : "#222"}
                             sx={{
                               mb: 0.3, whiteSpace: "nowrap",
                               overflow: "hidden", textOverflow: "ellipsis", letterSpacing: 0.1,
@@ -306,10 +317,10 @@ const CartDrawer = ({ open, onClose }) => {
                               value={item.size}
                               onChange={e => handleSizeChange(item, e.target.value)}
                               sx={{
-                                minWidth: 55, bgcolor: "#242424", color: "#fff",
-                                ".MuiSelect-icon": { color: "#fff" }, fontWeight: 700, height: 36,
+                                minWidth: 55, bgcolor: isDark ? "#242424" : "#f7f7f7", color: isDark ? "#fff" : "#222",
+                                ".MuiSelect-icon": { color: isDark ? "#fff" : "#555" }, fontWeight: 700, height: 36,
                               }}
-                              MenuProps={{ PaperProps: { sx: { bgcolor: "#242424", color: "#fff" } } }}
+                              MenuProps={{ PaperProps: { sx: { bgcolor: isDark ? "#242424" : "#fff", color: isDark ? "#fff" : "#222" } } }}
                             >
                               {sizeOptions.map((s, i) => (
                                 <MenuItem key={i} value={s}>{s}</MenuItem>
@@ -322,10 +333,10 @@ const CartDrawer = ({ open, onClose }) => {
                               value={item.color}
                               onChange={e => handleColorChange(item, e.target.value)}
                               sx={{
-                                minWidth: 60, bgcolor: "#242424", color: "#fff",
-                                ".MuiSelect-icon": { color: "#fff" }, fontWeight: 700, height: 36,
+                                minWidth: 60, bgcolor: isDark ? "#242424" : "#f7f7f7", color: isDark ? "#fff" : "#222",
+                                ".MuiSelect-icon": { color: isDark ? "#fff" : "#555" }, fontWeight: 700, height: 36,
                               }}
-                              MenuProps={{ PaperProps: { sx: { bgcolor: "#242424", color: "#fff" } } }}
+                              MenuProps={{ PaperProps: { sx: { bgcolor: isDark ? "#242424" : "#fff", color: isDark ? "#fff" : "#222" } } }}
                             >
                               {colorOptions.map((c, i) => (
                                 <MenuItem key={i} value={c}>{c}</MenuItem>
@@ -333,14 +344,14 @@ const CartDrawer = ({ open, onClose }) => {
                             </Select>
                           )}
                           {sizeOptions.length === 1 && (
-                            <Typography fontSize={13} color="#bbb">{item.size}</Typography>
+                            <Typography fontSize={13} color={isDark ? "#bbb" : "#888"}>{item.size}</Typography>
                           )}
                           {colorOptions.length === 1 && (
-                            <Typography fontSize={13} color="#bbb">{item.color}</Typography>
+                            <Typography fontSize={13} color={isDark ? "#bbb" : "#888"}>{item.color}</Typography>
                           )}
                         </Box>
                         {/* Price */}
-                        <Typography fontSize={15} fontWeight={700} color="#fff" sx={{ mb: 0.7 }}>
+                        <Typography fontSize={15} fontWeight={700} color={isDark ? "#fff" : "#222"} sx={{ mb: 0.7 }}>
                           Price: ฿{price?.toLocaleString?.() || 0}
                         </Typography>
                         {/* Qty + Stock */}
@@ -354,8 +365,8 @@ const CartDrawer = ({ open, onClose }) => {
                             }
                             disabled={(item.quantity || 1) <= 1}
                             sx={{
-                              color: "#fff", bgcolor: "#242424", border: "1px solid #333",
-                              "&:hover": { bgcolor: "#181818" }, width: 28, height: 28,
+                              color: isDark ? "#fff" : "#222", bgcolor: isDark ? "#242424" : "#ececec", border: `1px solid ${isDark ? "#333" : "#ddd"}`,
+                              "&:hover": { bgcolor: isDark ? "#181818" : "#e1e1e1" }, width: 28, height: 28,
                             }}
                           ><RemoveIcon /></IconButton>
                           <InputBase
@@ -364,7 +375,7 @@ const CartDrawer = ({ open, onClose }) => {
                             inputProps={{
                               min: 1, max: stock,
                               style: {
-                                width: 35, textAlign: "center", color: "#fff", background: "#1d1d1d",
+                                width: 35, textAlign: "center", color: isDark ? "#fff" : "#222", background: isDark ? "#1d1d1d" : "#f7f7f7",
                                 fontWeight: 800, fontSize: 16, borderRadius: 2, padding: "3px 4px",
                               },
                             }}
@@ -379,13 +390,13 @@ const CartDrawer = ({ open, onClose }) => {
                             }
                             disabled={(item.quantity || 1) >= stock}
                             sx={{
-                              color: "#fff", bgcolor: "#242424", border: "1px solid #333",
-                              "&:hover": { bgcolor: "#181818" }, width: 28, height: 28,
+                              color: isDark ? "#fff" : "#222", bgcolor: isDark ? "#242424" : "#ececec", border: `1px solid ${isDark ? "#333" : "#ddd"}`,
+                              "&:hover": { bgcolor: isDark ? "#181818" : "#e1e1e1" }, width: 28, height: 28,
                             }}
                           ><AddIcon /></IconButton>
                           {/* Stock - Hide on small screens */}
                           {!isMobile370 && (
-                            <Typography fontSize={12} color="#00e676" ml={2}>
+                            <Typography fontSize={12} color={isDark ? "#00e676" : "#1c53e6"} ml={2}>
                               Stock: {stock}
                             </Typography>
                           )}
@@ -397,20 +408,23 @@ const CartDrawer = ({ open, onClose }) => {
               )}
             </Box>
             {/* Footer */}
-            <Box sx={{ p: 2, borderTop: "1px solid #232323", bgcolor: "#111" }}>
+            <Box sx={{
+              p: 2,
+              borderTop: `1px solid ${isDark ? "#232323" : "#e0e0e0"}`,
+              bgcolor: isDark ? "#111" : "#f6f6f8"
+            }}>
               <Box sx={{
                 display: "flex", alignItems: "center",
                 justifyContent: "space-between", mb: 1.5,
               }}>
-                <Typography fontWeight={700} fontSize={17} color="#fff">
+                <Typography fontWeight={700} fontSize={17} color={isDark ? "#fff" : "#222"}>
                   Total
                 </Typography>
                 <Typography
                   fontWeight={900}
                   fontSize={23}
                   sx={{
-                    // background: "linear-gradient(90deg,#fff,#00e7ff)",
-                    background: "#fff",
+                    background: isDark ? "#fff" : "#222",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     fontVariantNumeric: "tabular-nums",
@@ -426,10 +440,11 @@ const CartDrawer = ({ open, onClose }) => {
                 disabled={cart.length === 0}
                 sx={{
                   fontWeight: 800, fontSize: 16, letterSpacing: 0.4,
-                  bgcolor: "#fff", color: "#111", mb: 2, py: 1.1,
+                  bgcolor: isDark ? "#fff" : "#222",
+                  color: isDark ? "#111" : "#fff", mb: 2, py: 1.1,
                   boxShadow: "0 6px 18px rgba(80,80,80,0.10)", textTransform: "none",
-                  "&:hover": { bgcolor: "#fafafa" },
-                  "&:disabled": { background: "#222", color: "#888", boxShadow: "none" },
+                  "&:hover": { bgcolor: isDark ? "#fafafa" : "#111" },
+                  "&:disabled": { background: isDark ? "#222" : "#ddd", color: "#888", boxShadow: "none" },
                 }}
                 onClick={() => setPayOpen(true)}
               >
@@ -439,11 +454,11 @@ const CartDrawer = ({ open, onClose }) => {
                 fullWidth
                 variant="outlined"
                 color="inherit"
-                onClick={() => dispatch(clearCart())}
+                onClick={handleClearCart}
                 disabled={cart.length === 0}
                 sx={{
-                  fontWeight: 700, color: "#fff", borderColor: "#444", background: "#181818",
-                  "&:hover": { borderColor: "#fff", background: "#222" },
+                  fontWeight: 700, color: isDark ? "#fff" : "#555", borderColor: isDark ? "#444" : "#bbb", background: isDark ? "#181818" : "#f6f6f8",
+                  "&:hover": { borderColor: isDark ? "#fff" : "#222", background: isDark ? "#222" : "#ececec" },
                   textTransform: "none",
                 }}
                 startIcon={<DeleteIcon />}
@@ -459,9 +474,7 @@ const CartDrawer = ({ open, onClose }) => {
         onClose={() => setPayOpen(false)}
         cart={cart}
         total={getTotal()}
-        onSuccess={() => {
-          setPayOpen(false);
-        }}
+        onSuccess={handleSuccess}
       />
     </>
   );

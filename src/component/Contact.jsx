@@ -2,22 +2,19 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
 import {
-    Box,
-    Button,
-    CardContent,
-    Grid,
-    TextField,
-    Typography,
-    Snackbar,
-    Alert,
-    Paper
+    Box, Button, CardContent, Grid, TextField, Typography, Snackbar, Alert, Paper
 } from '@mui/material';
-import { Link } from '@mui/material';
+import { Link, useTheme } from '@mui/material';
 
-const adidasDark = '#1b1c1c';
+const adidasDark = '#181a1b'; // สีพื้นหลังใหม่
+const adidasCard = '#232325'; // สีการ์ด/ฟอร์มใหม่
 const adidasBlue = '#1c53e6';
+const adidasRed = '#d32f2f'; // สีแดงสำหรับ error
 
 const Contact = () => {
+    const theme = useTheme();
+    const darkMode = theme.palette.mode === 'dark';
+
     const form = useRef();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [snackbar, setSnackbar] = React.useState({ open: false, message: '', severity: 'success' });
@@ -38,8 +35,39 @@ const Contact = () => {
     };
 
     const handleCancel = () => reset();
-
     const handleCloseSnackbar = () => setSnackbar({ ...snackbar, open: false });
+
+    // sx สำหรับ input
+    const textFieldSX = {
+        '& .MuiInputBase-root': {
+            color: darkMode ? '#fff' : '#222',
+            background: darkMode ? '#222' : '#fff',
+            borderRadius: 2,
+            fontWeight: 500,
+        },
+        '& .MuiInputLabel-root': {
+            color: darkMode ? '#bdbdbd' : '#888',
+        },
+        '& .MuiFilledInput-root': {
+            background: darkMode ? '#222' : '#fff',
+            borderRadius: 2,
+            color: darkMode ? '#fff' : '#222',
+            '&:before': {
+                borderBottom: darkMode ? '1.7px solid #36393c' : '1.5px solid #36393c',
+            },
+            '&:after': {
+                borderBottom: `2px solid ${adidasBlue}`,
+            },
+            '&:hover:not(.Mui-disabled):before': {
+                borderBottom: `2px solid ${adidasBlue}`,
+            },
+        },
+        '& input, & textarea': {
+            color: darkMode ? '#fff' : '#222',
+            fontWeight: 500,
+            background: 'transparent',
+        }
+    };
 
     return (
         <Box
@@ -51,7 +79,7 @@ const Contact = () => {
                 px: 1,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // for footer at bottom
+                justifyContent: 'space-between',
             }}
         >
             {/* Contact Form */}
@@ -61,7 +89,7 @@ const Contact = () => {
                     justifyContent: 'center',
                     alignItems: 'flex-start',
                     pt: 6,
-                    flex: 1, // so footer stays at bottom
+                    flex: 1,
                 }}
             >
                 <Paper elevation={8} sx={{
@@ -70,7 +98,7 @@ const Contact = () => {
                     borderRadius: 5,
                     p: 3,
                     boxShadow: '0 10px 48px rgba(0,0,0,0.12)',
-                    background: adidasDark,
+                    background: adidasCard,
                 }}>
                     <CardContent sx={{ p: 0 }}>
                         <Typography
@@ -119,10 +147,7 @@ const Contact = () => {
                                         label="First Name"
                                         size="small"
                                         variant="filled"
-                                        InputLabelProps={{ style: { color: '#bdbdbd' } }}
-                                        InputProps={{
-                                            style: { color: '#fff', background: '#222', borderRadius: 8 },
-                                        }}
+                                        sx={textFieldSX}
                                         {...register("firstname", {
                                             required: "First name is required",
                                             minLength: { value: 3, message: "First name must be at least 3 characters" }
@@ -138,10 +163,7 @@ const Contact = () => {
                                         label="Last Name"
                                         size="small"
                                         variant="filled"
-                                        InputLabelProps={{ style: { color: '#bdbdbd' } }}
-                                        InputProps={{
-                                            style: { color: '#fff', background: '#222', borderRadius: 8 },
-                                        }}
+                                        sx={textFieldSX}
                                         {...register("lastname", {
                                             required: "Last name is required",
                                             minLength: { value: 3, message: "Last name must be at least 3 characters" }
@@ -158,10 +180,7 @@ const Contact = () => {
                                         type="email"
                                         size="small"
                                         variant="filled"
-                                        InputLabelProps={{ style: { color: '#bdbdbd' } }}
-                                        InputProps={{
-                                            style: { color: '#fff', background: '#222', borderRadius: 8 },
-                                        }}
+                                        sx={textFieldSX}
                                         {...register("email", {
                                             required: "Email is required",
                                             pattern: {
@@ -181,10 +200,7 @@ const Contact = () => {
                                         type="tel"
                                         size="small"
                                         variant="filled"
-                                        InputLabelProps={{ style: { color: '#bdbdbd' } }}
-                                        InputProps={{
-                                            style: { color: '#fff', background: '#222', borderRadius: 8 },
-                                        }}
+                                        sx={textFieldSX}
                                         {...register("phone", {
                                             required: "Phone number is required",
                                             pattern: {
@@ -203,10 +219,7 @@ const Contact = () => {
                                         label="Subject"
                                         size="small"
                                         variant="filled"
-                                        InputLabelProps={{ style: { color: '#bdbdbd' } }}
-                                        InputProps={{
-                                            style: { color: '#fff', background: '#222', borderRadius: 8 },
-                                        }}
+                                        sx={textFieldSX}
                                         {...register("subject")}
                                     />
                                 </Grid>
@@ -218,10 +231,7 @@ const Contact = () => {
                                         rows={3}
                                         size="small"
                                         variant="filled"
-                                        InputLabelProps={{ style: { color: '#bdbdbd' } }}
-                                        InputProps={{
-                                            style: { color: '#fff', background: '#222', borderRadius: 8 },
-                                        }}
+                                        sx={textFieldSX}
                                         {...register("message", { required: "Message is required" })}
                                         error={!!errors.message}
                                         helperText={errors.message?.message}

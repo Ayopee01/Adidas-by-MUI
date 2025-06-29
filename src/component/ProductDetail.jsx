@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {
   Box, Grid, Typography, Button, Chip,
-  IconButton, Breadcrumbs, Link, CircularProgress, TextField, Paper, Modal, Fade
+  IconButton, Breadcrumbs, Link, CircularProgress, TextField, Paper, Modal
 } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CloseIcon from '@mui/icons-material/Close';
@@ -14,7 +14,6 @@ import { addToCart } from '../store/cartSlice';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-// ---------- framer-motion ----------
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MotionPaper = motion.create(Paper);
@@ -35,8 +34,9 @@ const ProductDetail = () => {
   const [openModal, setOpenModal] = useState(false);
   const [modalIdx, setModalIdx] = useState(0);
 
-  // --- Responsive
+  // Responsive
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const is1480down = useMediaQuery('(max-width:1480px)');
   const is860down = useMediaQuery('(max-width:860px)');
   const is500down = useMediaQuery('(max-width:500px)');
@@ -109,16 +109,15 @@ const ProductDetail = () => {
     }));
   };
 
-  // === Modal รูป ===
+  // Modal รูป
   const handleOpenModal = (idx) => { setModalIdx(idx); setOpenModal(true); };
   const handleCloseModal = () => setOpenModal(false);
   const handlePrev = (e) => { e.stopPropagation(); setModalIdx((prev) => (prev - 1 + images.length) % images.length); };
   const handleNext = (e) => { e.stopPropagation(); setModalIdx((prev) => (prev + 1) % images.length); };
 
-  // --- Responsive styles ---
+  // Responsive styles
   const imageBoxWidth = is500down ? 250 : is860down ? 340 : 400;
   const imageBoxHeight = imageBoxWidth;
-
   const breadFontSize = is460down ? 13 : 16;
   const prodNameFont = is460down ? 23 : is500down ? 27 : 33;
 
@@ -126,27 +125,27 @@ const ProductDetail = () => {
     p: 1,
     borderRadius: 2,
     cursor: 'pointer',
-    border: isSelected ? '2.5px solid #111' : '1.5px solid #d9d9d9',
-    bgcolor: isSelected ? '#111' : '#fff',
-    color: isSelected ? '#fff' : '#222',
+    border: isSelected ? `2.5px solid ${isDark ? "#00bfff" : "#111"}` : `1.5px solid ${isDark ? "#393949" : "#d9d9d9"}`,
+    bgcolor: isSelected ? (isDark ? "#1e222a" : "#111") : (isDark ? "#23242a" : "#fff"),
+    color: isSelected ? "#fff" : (isDark ? "#bbb" : "#222"),
     minWidth: 90,
     minHeight: 60,
     display: 'flex', alignItems: 'center', gap: 1.5,
     transition: 'all 0.2s',
-    boxShadow: isSelected ? '0 4px 18px rgba(0,0,0,0.05)' : 'none'
+    boxShadow: isSelected ? (isDark ? "0 4px 18px rgba(0,255,255,0.15)" : "0 4px 18px rgba(0,0,0,0.05)") : 'none'
   });
 
   const colorImgStyle = (isSelected) => ({
     width: isSelected ? 46 : 38,
     height: isSelected ? 46 : 38,
     borderRadius: 8,
-    background: '#eee',
-    border: isSelected ? '2px solid #fff' : '1px solid #aaa',
+    background: isDark ? "#393949" : "#eee",
+    border: isSelected ? `2px solid #fff` : `1px solid #aaa`,
     boxShadow: isSelected ? '0 4px 16px rgba(0,0,0,0.14)' : 'none',
     transition: 'all 0.22s'
   });
 
-  // ------- Animation Variants ---------
+  // Animation Variants
   const galleryPaperVariant = {
     hidden: { opacity: 0, y: 30, scale: 0.97 },
     visible: (i) => ({
@@ -159,12 +158,12 @@ const ProductDetail = () => {
 
   const colorBoxVariant = {
     rest: { scale: 1 },
-    hover: { scale: 1.08, boxShadow: "0 4px 18px rgba(43,127,255,0.16)" }
+    hover: { scale: 1.08, boxShadow: "0 4px 18px rgba(255, 0, 0, 0.16)" }
   };
 
   const sizeBtnVariant = {
     rest: { scale: 1 },
-    hover: { scale: 1.1, backgroundColor: "#222", color: "#fff" }
+    hover: { scale: 1.1, isDark}
   };
 
   const modalVariant = {
@@ -175,7 +174,7 @@ const ProductDetail = () => {
 
   return (
     <Box sx={{
-      background: '#fafbfc',
+      background: isDark ? '#23242a' : '#fafbfc',
       minHeight: '100vh',
       py: 3,
       pl: is1480down ? 0 : 7,
@@ -186,14 +185,15 @@ const ProductDetail = () => {
       {/* Breadcrumb */}
       <Breadcrumbs sx={{
         mb: 3, fontSize: breadFontSize, maxWidth: 1200,
-        mx: "auto"
+        mx: "auto",
+        color: isDark ? "#a7b7ca" : undefined
       }}>
         <Link
           underline="hover"
           onClick={() => navigate('/')}
-          sx={{ cursor: 'pointer', fontSize: breadFontSize }}
+          sx={{ cursor: 'pointer', fontSize: breadFontSize, color: isDark ? "#70b7ff" : undefined }}
         >ย้อนกลับ</Link>
-        <Typography color="text.primary" sx={{ fontSize: breadFontSize }}>{product.name}</Typography>
+        <Typography color="text.primary" sx={{ fontSize: breadFontSize, color: isDark ? "#fff" : "#111" }}>{product.name}</Typography>
       </Breadcrumbs>
 
       <Grid
@@ -221,11 +221,11 @@ const ProductDetail = () => {
                     whileInView="visible"
                     viewport={{ once: true, margin: '-40px' }}
                     variants={galleryPaperVariant}
-                    whileHover={{ scale: 1.03, boxShadow: "0 8px 24px 0 rgba(43,127,255,0.13)" }}
+                    whileHover={{ scale: 1.03, boxShadow: isDark ? "0 8px 24px 0 rgba(51,196,240,0.18)" : "0 8px 24px 0 rgba(43,127,255,0.13)" }}
                     sx={{
                       borderRadius: 3,
                       overflow: 'hidden',
-                      background: '#fff',
+                      background: isDark ? '#17171a' : '#fff',
                       width: imageBoxWidth,
                       height: imageBoxHeight,
                       display: 'flex',
@@ -283,7 +283,7 @@ const ProductDetail = () => {
         {/* Detail */}
         <Grid item xs={12} md={7.5}>
           <Box sx={{
-            background: '#fff',
+            background: isDark ? '#17171a' : '#fff',
             borderRadius: 5,
             p: { xs: 2, md: 4 },
             boxShadow: 2,
@@ -295,18 +295,18 @@ const ProductDetail = () => {
           }}>
             <Typography
               variant="h4"
-              color="#111"
-              fontWeight={900}
               sx={{
                 mb: 1,
                 fontSize: prodNameFont,
+                fontWeight: 900,
+                color: isDark ? "#fff" : "#111",
                 [theme.breakpoints.down('460')]: { fontSize: 19 }
               }}
             >
               {product.name}
             </Typography>
             <Box display="flex" alignItems="center" gap={2} mb={2}>
-              <Typography variant="h5" color="#111" fontWeight={800}>
+              <Typography variant="h5" sx={{ color: isDark ? "#fff" : "#111", fontWeight: 800 }}>
                 ฿{(selectedColor.price || selectedColor.originalPrice)?.toLocaleString()}
               </Typography>
               {selectedColor.discount > 0 && (
@@ -316,7 +316,7 @@ const ProductDetail = () => {
                     color="error"
                     sx={{ fontWeight: 700, fontSize: 16 }}
                   />
-                  <Typography variant="body1" color="#888" sx={{ textDecoration: 'line-through', ml: 1 }}>
+                  <Typography variant="body1" sx={{ color: isDark ? "#bbb" : "#888", textDecoration: 'line-through', ml: 1 }}>
                     ฿{selectedColor.originalPrice?.toLocaleString()}
                   </Typography>
                 </>
@@ -324,16 +324,16 @@ const ProductDetail = () => {
             </Box>
             <Typography
               variant="h6"
-              color='#252525'
               sx={{
                 mb: 2,
                 fontWeight: 600,
-                fontSize: is460down ? 16 : 20
+                fontSize: is460down ? 16 : 20,
+                color: isDark ? "#bbb" : "#252525"
               }}>
               รายละเอียดสินค้า
             </Typography>
             <Box component="ul" sx={{
-              color: '#252525', mb: 2, pl: 3, fontSize: 16, lineHeight: 1.8, wordBreak: 'break-word', maxWidth: 480
+              color: isDark ? "#bbb" : '#252525', mb: 2, pl: 3, fontSize: 16, lineHeight: 1.8, wordBreak: 'break-word', maxWidth: 480
             }}>
               {(Array.isArray(selectedColor.detail) ? selectedColor.detail : [selectedColor.detail]).map((d, i) =>
                 <li key={i} style={{ marginBottom: 3 }}>{d}</li>
@@ -341,7 +341,7 @@ const ProductDetail = () => {
             </Box>
 
             {/* สี */}
-            <Typography fontWeight={700} color='#252525' sx={{ mb: 1, fontSize: is460down ? 13.5 : 16 }}>Color</Typography>
+            <Typography fontWeight={700} sx={{ mb: 1, fontSize: is460down ? 13.5 : 16, color: isDark ? "#fff" : "#252525" }}>Color</Typography>
             <Box display="flex" gap={2} mb={2} flexWrap="wrap">
               {allVariants.map((v, idx) => {
                 const isSelected = selectedColor === v;
@@ -362,7 +362,7 @@ const ProductDetail = () => {
                     />
                     <Typography fontSize={14} sx={{
                       fontWeight: 600,
-                      color: isSelected ? "#fff" : "#222",
+                      color: isSelected ? "#fff" : (isDark ? "#bbb" : "#222"),
                       whiteSpace: 'pre-line'
                     }}>
                       {v["text-color"] || v.color}
@@ -373,7 +373,7 @@ const ProductDetail = () => {
             </Box>
 
             {/* ไซส์ */}
-            <Typography fontWeight={700} color='#252525' sx={{ mb: 1, fontSize: is460down ? 13.5 : 16 }}>Size</Typography>
+            <Typography fontWeight={700} sx={{ mb: 1, fontSize: is460down ? 13.5 : 16, color: isDark ? "#fff" : "#252525" }}>Size</Typography>
             <Box display="flex" flexWrap="wrap" gap={1.3} mb={2}>
               {sizeOptions.map(({ size, qty }) => (
                 <motion.div
@@ -393,9 +393,11 @@ const ProductDetail = () => {
                       minWidth: 74,
                       fontWeight: 700,
                       mb: 1,
-                      color: selectedSize === size ? "#fff" : "#111",
-                      background: selectedSize === size ? "#111" : "#fff",
-                      border: selectedSize === size ? "1.5px solid #111" : "1.5px solid #eee",
+                      color: selectedSize === size ? "#fff" : (isDark ? "#bbb" : "#111"),
+                      background: selectedSize === size ? (isDark ? "#00bfff" : "#111") : (isDark ? "#23242a" : "#fff"),
+                      border: selectedSize === size
+                        ? `1.5px solid ${isDark ? "#00bfff" : "#111"}`
+                        : `1.5px solid ${isDark ? "#393949" : "#eee"}`,
                       transition: "all 0.14s"
                     }}
                   >
@@ -406,7 +408,7 @@ const ProductDetail = () => {
             </Box>
             {/* จำนวน */}
             <Box display="flex" alignItems="center" mb={1.5}>
-              <Typography sx={{ fontSize: is460down ? 13.5 : 16 }}>จำนวน</Typography>
+              <Typography sx={{ fontSize: is460down ? 13.5 : 16, color: isDark ? "#bbb" : undefined }}>จำนวน</Typography>
               <TextField
                 type="number"
                 value={quantity}
@@ -414,9 +416,12 @@ const ProductDetail = () => {
                 size="small"
                 inputProps={{ min: 1, max: stock, style: { width: 64, textAlign: 'center' } }}
                 disabled={stock === 0}
-                sx={{ mx: 2, background: '#f6f7f8', borderRadius: 2 }}
+                sx={{ mx: 2, background: isDark ? '#23242a' : '#f6f7f8', borderRadius: 2 }}
               />
-              <Typography color={stock === 0 ? "error" : "#1aac3d"} sx={{ fontSize: is460down ? 13 : 15 }}>
+              <Typography sx={{
+                color: stock === 0 ? "#ff3e47" : (isDark ? "#26e98d" : "#1aac3d"),
+                fontSize: is460down ? 13 : 15
+              }}>
                 Stock: {stock}
               </Typography>
             </Box>
@@ -427,8 +432,8 @@ const ProductDetail = () => {
               startIcon={<ShoppingCartIcon />}
               sx={{
                 my: 2, width: '100%', py: 1.4, fontSize: 18, borderRadius: 2,
-                background: "#111", color: "#fff", fontWeight: 600,
-                '&:hover': { background: "#222" }
+                background: isDark ? "#00bfff" : "#111", color: "#fff", fontWeight: 600,
+                '&:hover': { background: isDark ? "#0097cc" : "#222" }
               }}
               disabled={!selectedSize || stock === 0}
               onClick={handleAddToCart}
@@ -438,7 +443,7 @@ const ProductDetail = () => {
           </Box>
         </Grid>
       </Grid>
-      {/* === Modal for Image Preview === */}
+      {/* Modal for Image Preview */}
       <Modal
         open={openModal}
         onClose={handleCloseModal}
@@ -498,7 +503,7 @@ const ProductDetail = () => {
                   maxWidth: '85vw',
                   borderRadius: 10,
                   boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
-                  background: '#fff'
+                  background: isDark ? "#23242a" : "#fff"
                 }}
               />
               {images.length > 1 && (

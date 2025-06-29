@@ -8,31 +8,44 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useSelector } from 'react-redux';
 import CartDrawer from './CartDrawer';
-import LogoAdidas from '../assets/Logo_Adidas.png';
+import LogoAdidas from './LogoAdidas';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const adidasBlue = "#1c53e6";
-const MenuText = styled(Typography, { shouldForwardProp: (prop) => prop !== 'active' })(({ active }) => ({
-  color: active ? adidasBlue : '#1a1a1a',
-  fontWeight: active ? 700 : 500,
-  cursor: 'pointer',
-  transition: 'color 0.18s, border 0.18s, background 0.18s',
-  borderBottom: active ? `2.5px solid ${adidasBlue}` : '2.5px solid transparent',
-  borderRadius: 2,
-  padding: '7px 16px',
-  fontSize: 18,
-  '&:hover': { color: adidasBlue, borderBottom: `2.5px solid ${adidasBlue}` },
-}));
 
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: '#fff',
-  borderBottom: '1.5px solid #e3e6ea',
+const adidasBlue = "#1c53e6";
+const MenuText = styled(Typography, { shouldForwardProp: (prop) => prop !== 'active' && prop !== 'darkMode' })(
+  ({ active, darkMode }) => ({
+    color: active
+      ? "#1c53e6"
+      : darkMode
+        ? '#fff'
+        : '#1a1a1a',
+    fontWeight: active ? 700 : 500,
+    cursor: 'pointer',
+    transition: 'color 0.18s, border 0.18s, background 0.18s',
+    borderBottom: active ? `2.5px solid #1c53e6` : '2.5px solid transparent',
+    borderRadius: 2,
+    padding: '7px 16px',
+    fontSize: 18,
+    '&:hover': {
+      color: "#1c53e6",
+      borderBottom: `2.5px solid #1c53e6`,
+    },
+  })
+);
+
+const StyledAppBar = styled(AppBar, {
+  shouldForwardProp: (prop) => prop !== 'darkMode'
+})(({ theme, darkMode }) => ({
+  backgroundColor: darkMode ? '#111' : '#fff',  // สีพื้นหลัง
+  color: darkMode ? '#fff' : '#1a1a1a',        // สีตัวอักษร
+  borderBottom: darkMode ? '1.5px solid #222' : '1.5px solid #e3e6ea',
   boxShadow: '0 2px 10px 0 rgba(44,44,44,0.04)',
   position: 'sticky', top: 0,
   zIndex: theme.zIndex.drawer + 1,
 }));
 
-const Navbar = () => {
+const Navbar = ({ darkMode }) => {
   const cart = useSelector((state) => state.cart.cart);
   const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -93,7 +106,7 @@ const Navbar = () => {
 
   return (
     <>
-      <StyledAppBar elevation={0}>
+      <StyledAppBar elevation={0} darkMode={darkMode}>
         <Toolbar
           sx={{
             justifyContent: 'center',
@@ -131,7 +144,14 @@ const Navbar = () => {
             }}
             onClick={handleLogoClick}
           >
-            <img src={LogoAdidas} alt="Logo Adidas" style={{ height: 45, width: 'auto' }} />
+            <LogoAdidas
+              width={90}
+              height={60}
+              style={{
+                color: darkMode ? '#fff' : '#111',
+                transition: 'color 0.3s'
+              }}
+            />
           </Box>
           {/* Desktop Menu */}
           {!isMobile && (
@@ -143,6 +163,7 @@ const Navbar = () => {
                   key={item.id}
                   onClick={() => handleMenuClick(item.id)}
                   active={activeSection === item.id ? 1 : 0}
+                  darkMode={darkMode}
                 >
                   {item.label}
                 </MenuText>
@@ -161,13 +182,12 @@ const Navbar = () => {
           >
             <IconButton
               sx={{
-                color: '#111', ml: 1, border: '1.5px solid #ececec', borderRadius: 2,
-                bgcolor: '#f8f8f8', '&:hover': { bgcolor: '#e3e3e3' }
+                color: darkMode ? '#fff' : '#111',
+                border: darkMode ? '1.5px solid #333' : '1.5px solid #ececec',
+                bgcolor: darkMode ? '#181818' : '#f8f8f8',
+                '&:hover': { bgcolor: darkMode ? '#232323' : '#e3e3e3' }
               }}
-              onClick={() => {
-                setDrawerOpen(false);      // ปิด Hamburger ถ้ามี
-                setCartDrawerOpen(true);   // แล้วเปิด Cart
-              }}
+              onClick={() => setCartDrawerOpen(true)} // <-- เพิ่มตรงนี้
             >
               <Badge badgeContent={cartItemCount} color="error" showZero>
                 <ShoppingCartIcon />
@@ -178,19 +198,37 @@ const Navbar = () => {
       </StyledAppBar>
       {/* Drawer (Mobile Menu) */}
       <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <Box sx={{
-          width: 240, backgroundColor: '#fff', height: '100%',
-          borderLeft: '1.5px solid #e3e6ea', pt: 15
-        }}>
+        <Box
+          sx={{
+            width: 240,
+            backgroundColor: darkMode ? '#181A1B' : '#fff',      // <-- เปลี่ยนตาม darkMode
+            height: '100%',
+            borderLeft: darkMode ? '1.5px solid #333' : '1.5px solid #e3e6ea', // <-- ขอบ
+            pt: 15,
+            transition: 'background 0.3s',
+          }}
+        >
           <List>
             {menuItems.map((item) => (
               <ListItem
-                button
+                component="button"
                 key={item.id}
                 selected={activeSection === item.id}
                 sx={{
-                  borderRadius: 2, mb: 1,
-                  background: activeSection === item.id ? 'rgba(28,83,230,0.07)' : 'transparent',
+                  borderRadius: 2,
+                  mb: 1,
+                  border: 'none',
+                  boxShadow: 'none',
+                  outline: 'none',
+                  background: activeSection === item.id
+                    ? (darkMode ? 'rgba(28,83,230,0.15)' : 'rgba(28,83,230,0.07)')
+                    : 'transparent',
+                  '&:hover': {
+                    background: darkMode
+                      ? 'rgba(28,83,230,0.20)'
+                      : 'rgba(28,83,230,0.10)',
+                  },
+                  transition: 'background 0.2s',
                 }}
                 onClick={() => {
                   setDrawerOpen(false);
@@ -201,15 +239,19 @@ const Navbar = () => {
                   primary={item.label}
                   primaryTypographyProps={{
                     sx: {
-                      color: activeSection === item.id ? adidasBlue : '#222',
+                      color: activeSection === item.id
+                        ? adidasBlue
+                        : (darkMode ? '#fff' : '#222'),
                       fontWeight: activeSection === item.id ? 700 : 500,
-                      letterSpacing: 0.2
+                      letterSpacing: 0.2,
+                      transition: 'color 0.2s',
                     },
                   }}
                 />
               </ListItem>
             ))}
           </List>
+
         </Box>
       </Drawer>
       <CartDrawer open={cartDrawerOpen} onClose={() => setCartDrawerOpen(false)} />
