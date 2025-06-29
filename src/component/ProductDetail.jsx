@@ -94,8 +94,10 @@ const ProductDetail = () => {
     : selectedColor?.shoe_sizes || [];
   const stock = sizeOptions.find(s => s.size === selectedSize)?.qty ?? 0;
 
+  // === ป้องกันการเพิ่มจำนวนเกิน stock ตรงนี้ ===
   const handleAddToCart = () => {
     if (!selectedSize || stock === 0) return;
+    let safeQty = Math.max(1, Math.min(quantity, stock)); // <= ปลอดภัยแน่นอน
     dispatch(addToCart({
       id: selectedColor.id,
       name: selectedColor.name,
@@ -103,9 +105,10 @@ const ProductDetail = () => {
       color: selectedColor["text-color"] || selectedColor.color,
       size: selectedSize,
       price: selectedColor.price || selectedColor.originalPrice,
-      quantity: quantity,
+      quantity: safeQty,
       originalPrice: selectedColor.originalPrice,
       discount: selectedColor.discount,
+      stock: stock, // ***** เพิ่มตรงนี้ *****
     }));
   };
 
@@ -163,7 +166,7 @@ const ProductDetail = () => {
 
   const sizeBtnVariant = {
     rest: { scale: 1 },
-    hover: { scale: 1.1, isDark}
+    hover: { scale: 1.1 }
   };
 
   const modalVariant = {

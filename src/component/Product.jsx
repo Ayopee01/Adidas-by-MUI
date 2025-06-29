@@ -19,7 +19,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import usePatternPagination from '../store/usePagination';
 import { addToCart } from '../store/cartSlice';
 
-// COLORS
+// ---- Style & Utils ----
 const getColors = (mode) => ({
   primary: mode === 'dark' ? '#fff' : '#111',
   background: mode === 'dark' ? '#191c21' : '#fff',
@@ -30,20 +30,17 @@ const getColors = (mode) => ({
   sky: "#2b7fff",
   red: "#e7000b"
 });
-
 const modalBtnColors = (mode) => ({
   bg: mode === 'dark' ? '#24282d' : '#111',
   color: '#fff',
   hover: mode === 'dark' ? '#2b7fff' : '#1976d2'
 });
-
 const BackgroundContainer = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   background: getColors(theme.palette.mode).background,
   paddingTop: theme.spacing(8),
   paddingBottom: theme.spacing(8),
 }));
-
 const SectionTitle = styled(Typography)(({ theme }) => ({
   fontSize: '3.2rem',
   fontWeight: 900,
@@ -54,7 +51,6 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   fontFamily: 'Helvetica Neue, Arial, sans-serif',
   [theme.breakpoints.down('485')]: { fontSize: '2.1rem' }
 }));
-
 const SectionSubTitle = styled(Typography)(({ theme }) => ({
   fontSize: '1.15rem',
   color: getColors(theme.palette.mode).gray,
@@ -64,7 +60,6 @@ const SectionSubTitle = styled(Typography)(({ theme }) => ({
   letterSpacing: '0.02em',
   [theme.breakpoints.down('485')]: { fontSize: '0.97rem' }
 }));
-
 const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: 24,
   overflow: 'hidden',
@@ -86,7 +81,6 @@ const StyledCard = styled(Card)(({ theme }) => ({
     '& .MuiChip-label': { fontSize: '0.85rem' }
   }
 }));
-
 const SaleBadge = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: 16, left: 16,
@@ -99,7 +93,6 @@ const SaleBadge = styled(Box)(({ theme }) => ({
   zIndex: 10,
   boxShadow: '0 2px 8px rgba(255, 0, 0, 0.08)'
 }));
-
 const ImageContainer = styled(Box)(({ theme }) => ({
   position: 'relative',
   width: '100%',
@@ -113,7 +106,6 @@ const ImageContainer = styled(Box)(({ theme }) => ({
   '&:hover .zoom-overlay': { opacity: 1 },
   [theme.breakpoints.down('485')]: { height: '210px' }
 }));
-
 const ZoomOverlay = styled(Box)(() => ({
   position: 'absolute',
   top: 0, left: 0, right: 0, bottom: 0,
@@ -123,14 +115,12 @@ const ZoomOverlay = styled(Box)(() => ({
   transition: 'opacity 0.3s',
   zIndex: 5,
 }));
-
 const StyledModal = styled(Modal)(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   padding: '20px',
 }));
-
 const ModalContent = styled(Box)(({ theme }) => ({
   position: 'relative',
   maxWidth: '90vw',
@@ -141,14 +131,12 @@ const ModalContent = styled(Box)(({ theme }) => ({
   boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
   background: getColors(theme.palette.mode).card
 }));
-
 const ModalImage = styled('img')(() => ({
   width: '100%',
   height: '100%',
   objectFit: 'contain',
   display: 'block',
 }));
-
 const CloseButton = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   top: 16,
@@ -158,7 +146,6 @@ const CloseButton = styled(IconButton)(({ theme }) => ({
   zIndex: 10,
   '&:hover': { backgroundColor: "#000" },
 }));
-
 const ColorDot = styled(Box)(({ theme, colors: dotColors = [], selected }) => ({
   width: 28, height: 28, borderRadius: '50%',
   background: Array.isArray(dotColors) && dotColors.length === 2
@@ -175,7 +162,6 @@ const ColorDot = styled(Box)(({ theme, colors: dotColors = [], selected }) => ({
     boxShadow: '0 4px 12px rgba(8, 136, 255, 0.38)'
   }
 }));
-
 const StyledTabs = styled(Tabs)(({ theme }) => ({
   marginBottom: '32px',
   minHeight: 0,
@@ -213,7 +199,6 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
     [theme.breakpoints.down('740')]: { display: 'none' }
   }
 }));
-
 const StyledChip = styled(Chip)(({ theme }) => ({
   mb: 2,
   bgcolor: theme.palette.mode === 'dark' ? '#23262b' : "#fff",
@@ -222,7 +207,6 @@ const StyledChip = styled(Chip)(({ theme }) => ({
   marginBottom: 15,
   border: `1px solid ${getColors(theme.palette.mode).border}`,
 }));
-
 const StyledButton = styled(Button)(({ theme, disabled }) => ({
   borderRadius: 6,
   height: 48,
@@ -253,13 +237,11 @@ const StyledButton = styled(Button)(({ theme, disabled }) => ({
   [theme.breakpoints.down('sm')]: { fontSize: 14, height: 38, minHeight: 38, padding: '10px 8px', paddingLeft: 24, paddingRight: 24 },
   [theme.breakpoints.down('485')]: { fontSize: 13, height: 34, minHeight: 34, padding: '8px 6px', paddingLeft: 24, paddingRight: 24 }
 }));
-
 const PriceTypography = styled(Typography)(({ theme }) => ({
   color: getColors(theme.palette.mode).primary,
   fontWeight: 700,
   fontSize: '1.15rem',
 }));
-
 const PriceOldTypography = styled(Typography)(({ theme }) => ({
   textDecoration: 'line-through',
   color: getColors(theme.palette.mode).gray,
@@ -291,6 +273,7 @@ const Product = () => {
   const tabRefs = useRef([]);
   const [indicator, setIndicator] = useState({ left: 0, width: 0, top: 0 });
 
+  // ... Pagination setup
   const getPattern = () => {
     if (category === "All") {
       return { Shirt: 3, Pants: 3, Shorts: 3, Shoe: 3 };
@@ -383,6 +366,7 @@ const Product = () => {
     setFilteredProducts(filtered);
   }, [category, products, search, sort]);
 
+  // -- Selector Functions
   const handleVariantSelect = (productName, variant) => {
     setSelectedVariants(prev => ({ ...prev, [productName]: variant }));
     let sizeKey = variant.clothing_sizes?.[0]?.size || variant.shoe_sizes?.[0]?.size || '';
@@ -420,7 +404,8 @@ const Product = () => {
     swiperRef.current.swiper.slideTo(newIndex);
   };
 
-  const handleAddToCart = (product, variant, size) => {
+  // -- ป้องกันเพิ่มเกิน stock
+  const handleAddToCart = (product, variant, size, stock) => {
     const img = Array.isArray(variant.img) ? variant.img[0] : variant.img || product.img;
     dispatch(
       addToCart({
@@ -430,7 +415,7 @@ const Product = () => {
         price: variant.price || variant.originalPrice || 0,
         color: variant['text-color'] || '',
         size: size || '',
-        stock: variant.stock || 0,
+        stock: stock || 0,
         quantity: 1
       })
     );
@@ -680,7 +665,7 @@ const Product = () => {
                             <StyledButton
                               disabled={getCurrentStock() <= 0}
                               startIcon={getCurrentStock() <= 0 ? <BlockIcon /> : <ShoppingCartIcon />}
-                              onClick={() => handleAddToCart(product, activeVariant, currentSize)}
+                              onClick={() => handleAddToCart(product, activeVariant, currentSize, getCurrentStock())}
                             >
                               {getCurrentStock() <= 0 ? 'OUT OF STOCK' : 'ADD TO CART'}
                             </StyledButton>
@@ -786,7 +771,6 @@ const Product = () => {
         >
           <Fade in={modalOpen}>
             <ModalContent>
-              {/* ปุ่มปิด Modal */}
               <IconButton
                 onClick={handleCloseModal}
                 sx={{
@@ -805,7 +789,6 @@ const Product = () => {
               </IconButton>
               {modalImages.length > 1 && (
                 <>
-                  {/* ปุ่มเลื่อนซ้าย */}
                   <IconButton
                     sx={{
                       position: 'absolute',
@@ -824,7 +807,6 @@ const Product = () => {
                   >
                     <ChevronLeftIcon fontSize="large" />
                   </IconButton>
-                  {/* ปุ่มเลื่อนขวา */}
                   <IconButton
                     sx={{
                       position: 'absolute',

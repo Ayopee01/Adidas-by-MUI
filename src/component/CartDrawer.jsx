@@ -8,7 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  removeFromCart, clearCart, incrementQty, decrementQty, addToCart
+  removeFromCart, clearCart, incrementQty, decrementQty, addToCart, setQty
 } from "../store/cartSlice";
 import { motion, useAnimation } from "framer-motion";
 import axios from "axios";
@@ -27,7 +27,7 @@ const CartDrawer = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const controls = useAnimation();
   const [products, setProducts] = useState([]);
-  const [payOpen, setPayOpen] = useState(false); // State ถูกต้อง
+  const [payOpen, setPayOpen] = useState(false);
   const isMobile370 = useMediaQuery('(max-width:370px)');
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
@@ -63,6 +63,7 @@ const CartDrawer = ({ open, onClose }) => {
     return [...new Set(sizes)];
   };
 
+  // คืนค่าจำนวน stock จริงต่อไซส์/สี
   const getStock = (item) => {
     const variant = getVariants(item).find(
       v =>
@@ -90,6 +91,7 @@ const CartDrawer = ({ open, onClose }) => {
     return p?.price || p?.originalPrice || item.price || 0;
   };
 
+  // เมื่อเปลี่ยนสีหรือไซส์ใน cart
   const handleColorChange = (item, color) => {
     const variants = getVariants(item).filter(
       v => (v["text-color"] || v.color) === color
@@ -106,8 +108,10 @@ const CartDrawer = ({ open, onClose }) => {
       if (variant.shoe_sizes && !variant.shoe_sizes.find(s => s.size === size))
         size = variant.shoe_sizes[0].size;
     }
+    // ต้องส่ง stock ไปด้วย
+    const stock = getStock({ ...variant, color, size });
     dispatch(removeFromCart({ id: item.id, color: item.color, size: item.size }));
-    dispatch(addToCart({ ...variant, color, size, quantity: item.quantity || 1 }));
+    dispatch(addToCart({ ...variant, color, size, quantity: Math.min(item.quantity || 1, stock), stock }));
   };
 
   const handleSizeChange = (item, size) => {
@@ -117,17 +121,32 @@ const CartDrawer = ({ open, onClose }) => {
         ((v.clothing_sizes && v.clothing_sizes.some(s => s.size === size)) ||
           (v.shoe_sizes && v.shoe_sizes.some(s => s.size === size)));
     });
+    const stock = getStock({ ...variant, color: item.color, size });
     dispatch(removeFromCart({ id: item.id, color: item.color, size: item.size }));
-    dispatch(addToCart({ ...variant, color: item.color, size, quantity: item.quantity || 1 }));
+    dispatch(addToCart({ ...variant, color: item.color, size, quantity: Math.min(item.quantity || 1, stock), stock }));
   };
 
+  // คุม input
   const handleQtyChange = (item, val) => {
     let qty = Number(val);
-    if (isNaN(qty) || qty < 1) qty = 1;
     const stock = getStock(item);
+    if (isNaN(qty) || qty < 1) qty = 1;
     if (qty > stock) qty = stock;
-    dispatch(removeFromCart({ id: item.id, color: item.color, size: item.size }));
-    dispatch(addToCart({ ...item, quantity: qty }));
+    dispatch(setQty({ id: item.id, color: item.color, size: item.size, quantity: qty, stock }));
+  };
+
+  // ฟังก์ชันเพิ่ม-ลดจำนวนทีละ 1 (ส่ง stock ทุกครั้ง!)
+  const handleInc = (item) => {
+    const stock = getStock(item);
+    if ((item.quantity || 1) < stock) {
+      dispatch(incrementQty({ id: item.id, color: item.color, size: item.size, stock }));
+    }
+  };
+
+  const handleDec = (item) => {
+    if ((item.quantity || 1) > 1) {
+      dispatch(decrementQty({ id: item.id, color: item.color, size: item.size }));
+    }
   };
 
   const getTotal = () =>
@@ -138,8 +157,8 @@ const CartDrawer = ({ open, onClose }) => {
 
   // --- หลังชำระเงินเสร็จ (onSuccess) ---
   const handleSuccess = () => {
-    handleClearCart(); // ล้างตะกร้าทันทีหลังทำรายการ
-    setPayOpen(false); // ปิด popup PaymentModal
+    handleClearCart();
+    setPayOpen(false);
   };
 
   return (
@@ -360,9 +379,7 @@ const CartDrawer = ({ open, onClose }) => {
                         }}>
                           <IconButton
                             size="small"
-                            onClick={() =>
-                              dispatch(decrementQty({ id: item.id, color: item.color, size: item.size }))
-                            }
+                            onClick={() => handleDec(item)}
                             disabled={(item.quantity || 1) <= 1}
                             sx={{
                               color: isDark ? "#fff" : "#222", bgcolor: isDark ? "#242424" : "#ececec", border: `1px solid ${isDark ? "#333" : "#ddd"}`,
@@ -384,17 +401,13 @@ const CartDrawer = ({ open, onClose }) => {
                           />
                           <IconButton
                             size="small"
-                            onClick={() =>
-                              (item.quantity || 1) < stock &&
-                              dispatch(incrementQty({ id: item.id, color: item.color, size: item.size }))
-                            }
+                            onClick={() => handleInc(item)}
                             disabled={(item.quantity || 1) >= stock}
                             sx={{
                               color: isDark ? "#fff" : "#222", bgcolor: isDark ? "#242424" : "#ececec", border: `1px solid ${isDark ? "#333" : "#ddd"}`,
                               "&:hover": { bgcolor: isDark ? "#181818" : "#e1e1e1" }, width: 28, height: 28,
                             }}
                           ><AddIcon /></IconButton>
-                          {/* Stock - Hide on small screens */}
                           {!isMobile370 && (
                             <Typography fontSize={12} color={isDark ? "#00e676" : "#1c53e6"} ml={2}>
                               Stock: {stock}
